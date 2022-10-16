@@ -1,0 +1,134 @@
+@import url('https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@700&family=Lexend+Deca&display=swap');
+
+:root{
+    --orange: hsl(31, 77%, 52%);
+    --dcyan: hsl(184, 100%, 22%);
+    --vdcyan: hsl(179, 100%, 13%);
+    --twhite: hsla(0, 0%, 100%, 0.75);
+    --grey-light: hsl(0, 0%, 95%);
+}
+
+html {
+    max-width: 1440px;
+    margin: auto;
+}
+
+*{
+    box-sizing: border-box;
+}
+body{
+    height: 100vh;
+    margin: auto;
+    background-color: var(--grey-light);
+    font-family: 'Lexend Deca', sans-serif;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 15px;
+}
+
+/* /// GLOBAL /// */
+
+h2 {
+    text-transform: uppercase;
+    font-size: 2.5rem;
+    font-family: 'Big Shoulders Display', cursive;
+}
+
+h3 {
+    font-size: 14px;
+    font-family: 'Lexend Deca', sans-serif;
+    font-weight: initial;
+    margin: 0px;
+}
+
+p, a { 
+    color: var(--twhite);
+}
+
+/* /// ITEMS AND CONTAINERS /// */
+
+.item {
+    margin-top: 20px;
+    flex: 0 1 325px;
+    display: flex;
+    flex-direction: column;
+    height: 500px;
+    padding: 3rem;
+}
+
+body :nth-child(1)
+{ 
+    border-radius: 10px 0px 0px 10px;
+}
+body :nth-child(3)
+{ 
+    border-radius: 0px 10px 10px 0px;
+}
+
+.sedans_container {
+   background-color: var(--orange);
+}
+
+.suvs_container {
+    background-color: var(--dcyan);
+}
+
+.luxury_container {
+    background-color: var(--vdcyan);
+}
+
+.learn_more {
+    margin-top: auto;
+    
+}
+.learn_more h3{
+    width: fit-content;
+}
+.learn_more a{ 
+    text-decoration: none;
+    border-radius: 30px;
+    padding: 15px 35px;
+    border: 2px white solid;
+    width: fit-content;
+    border-radius: 30px;
+    text-align: center;
+  
+}
+
+/* /// ACTIVE BUTTONS /// */
+
+.learn_more a:active {
+    background-color: rgb(255, 255, 255);
+}
+.sedans_container .learn_more a:active{  
+    color: var(--orange);
+}
+.suvs_container .learn_more a:active{  
+    color: var(--dcyan);
+}
+.luxury_container .learn_more a:active{  
+    color: var(--vdcyan);
+}
+
+
+/* /// MEDIA QUERIES /// */
+
+@media screen and (max-width: 840px){
+
+    body {
+        flex-wrap: wrap;
+        align-content: flex-start;
+        justify-content: flex-start;
+    }
+    
+    .item {
+        flex-grow: 1;
+    }
+    
+}
+
+@media screen and (max-width: 300px){
+    body { min-width: 300px; }
+}
