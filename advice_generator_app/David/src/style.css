@@ -88,6 +88,14 @@ button:disabled {
   background-color: var(--greyish-blue);
 }
 
+button:disabled:active {
+  transform: scale(1);
+}
+
+button:disabled:hover {
+  box-shadow: none;
+}
+
 .pause svg {
   position: relative;
   color: var(--light-cyan);
