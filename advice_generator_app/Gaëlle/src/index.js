@@ -1,16 +1,26 @@
 const main = document.getElementById("main");
 
 const buttonClick = () => {
-    console.log("click")
+    return dataApi()
+    .then(data => {
+        const id = data.slip.id
+        const advice = data.slip.advice
+        adviceEl.innerText = `“${advice}”`
+        idAdvice.innerText = `ADVICE #${id}`
+    })
 }
 
 const createHTML = ({ id, advice}) => {
     const container = document.createElement("article");
     
     const idAdvice = document.createElement("p");
-    idAdvice.innerText = id
+    idAdvice.classList.add("id")
+    idAdvice.innerText = `ADVICE #${id}`
+
     const adviceEl = document.createElement("p");
-    adviceEl.innerText = advice
+    adviceEl.classList.add("advice")
+    adviceEl.innerText = `“${advice}”`
+
     const buttonCitation = document.createElement("button")
     buttonCitation.addEventListener("click", buttonClick)
 
