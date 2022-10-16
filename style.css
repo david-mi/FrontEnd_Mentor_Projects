@@ -78,6 +78,7 @@ a {
 .card:hover .links a {
   transform: translateX(0);
   animation: pointer 400ms;
+  pointer-events: all;
 }
 
 .links {
