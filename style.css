@@ -47,6 +47,7 @@ a {
   flex: 1 1 300px;
   max-width: 400px;
   transition: 300ms ease-in-out;
+  /* cursor: pointer; */
 }
 
 .card img {
@@ -64,21 +65,16 @@ a {
   opacity: 1;
 }
 
-@keyframes pointer {
-
-  from {
-    pointer-events: none;
-  }
-
-  to {
-    pointer-events: none;
-  }
-}
-
 .card:hover .links a {
   transform: translateX(0);
-  animation: pointer 400ms;
   pointer-events: all;
+}
+
+.card .links li a:hover {
+  box-shadow: 0 0 20px #16bdff;
+  background-color: #16bdff;
+  color: white;
+  transform: scale(1.05);
 }
 
 .links {
@@ -100,7 +96,7 @@ a {
 
 .links a {
   display: block;
-  transition: 400ms ease-in-out;
+  transition: 300ms ease-in-out;
   background-color: #80dbff;
   border-radius: 40px;
   padding: 10px 30px;
@@ -115,11 +111,4 @@ a {
 
 .links li:nth-child(odd) a {
   transform: translateX(-200%);
-}
-
-.card .links li a:hover {
-  box-shadow: 0 0 20px #16bdff;
-  background-color: #16bdff;
-  color: white;
-  transform: scale(1.05);
 }
