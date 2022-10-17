@@ -40,11 +40,13 @@ article {
 .id {
     color: var(--neon-green);
     letter-spacing: 7px;
+    text-align: center;
 }
 
 .advice {
     color: var(--light-cyan);
     font-size: var(--font-size);
+    text-align: center;
 }
 
 button {
@@ -53,9 +55,13 @@ button {
     display: flex;
     justify-content: center;
     position: absolute;
-    left: 45%;
-    bottom: -10%;
+    top: 270px;
     border: transparent;
     border-radius: 100%;
     background-color: var(--neon-green);
 }
+
+button:hover {
+    box-shadow: 0 0 50px var(--neon-green);
+}
+
