@@ -37,3 +37,25 @@ article {
     background-color: var(--dark-greyish-blue);
 }
 
+.id {
+    color: var(--neon-green);
+    letter-spacing: 7px;
+}
+
+.advice {
+    color: var(--light-cyan);
+    font-size: var(--font-size);
+}
+
+button {
+    width: 60px;
+    height: 60px;
+    display: flex;
+    justify-content: center;
+    position: absolute;
+    left: 45%;
+    bottom: -10%;
+    border: transparent;
+    border-radius: 100%;
+    background-color: var(--neon-green);
+}
