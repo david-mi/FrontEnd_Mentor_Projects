@@ -153,10 +153,117 @@ body svg {
   }
 }
 
+.statistics {
+  position: relative;
+  background-color: #f0f1f6;
+  padding: 250px 0;
+  width: 100%;
+  display: grid;
+  column-gap: 30px;
+  justify-items: center;
+  grid-template-columns: 1fr repeat(3, auto) 1fr;
+  grid-template-areas: ". title title title ." ". desc desc desc . " ". card1 card2 card3 . ";
+}
+@media screen and (max-width: 1200px) {
+  .statistics {
+    padding: 100px 0;
+    row-gap: 40px;
+    grid-template-columns: 1fr;
+    grid-template-areas: "title" "desc" "card1" "card2" "card3";
+  }
+}
+.statistics::before {
+  content: "";
+  position: absolute;
+  background-color: var(--cyan);
+  height: 8px;
+  width: 50%;
+  bottom: 420px;
+}
+@media screen and (max-width: 1200px) {
+  .statistics::before {
+    height: 50%;
+    width: 6px;
+    bottom: 310px;
+  }
+}
+.statistics h2 {
+  grid-area: title;
+  font-size: 2.5rem;
+  color: var(--very-dark-violet);
+  margin-bottom: 20px;
+}
+.statistics .description {
+  grid-area: desc;
+  margin-bottom: 200px;
+  max-width: 500px;
+  text-align: center;
+  font-size: 1.2rem;
+  color: var(--gray);
+}
+@media screen and (max-width: 1200px) {
+  .statistics .description {
+    margin-bottom: 100px;
+  }
+}
+.statistics .card {
+  position: relative;
+  min-width: 350px;
+  width: 350px;
+  height: 270px;
+  border-radius: 10px;
+  box-shadow: 0 0 2px var(--gray);
+  background-color: white;
+  padding: 60px 30px 0 30px;
+}
+@media screen and (max-width: 1200px) {
+  .statistics .card {
+    width: 80%;
+    text-align: center;
+  }
+}
+.statistics .card h4 {
+  font-size: 1.4rem;
+  padding-bottom: 20px;
+}
+.statistics .card p {
+  color: var(--gray);
+}
+.statistics .card.first {
+  grid-area: card1;
+  top: -40px;
+}
+.statistics .card.second {
+  grid-area: card2;
+}
+.statistics .card.third {
+  grid-area: card3;
+  top: 40px;
+  z-index: 10;
+}
+.statistics .card .icon-container {
+  left: 20%;
+  transform: translate(-50%, -50%);
+  top: 0;
+  position: absolute;
+  display: grid;
+  place-items: center;
+  height: 80px;
+  width: 80px;
+  border-radius: 50%;
+  background-color: var(--dark-violet);
+}
+@media screen and (max-width: 1200px) {
+  .statistics .card .icon-container {
+    left: 50%;
+  }
+}
+
 .get-started {
   position: relative;
   width: 100%;
   background-color: var(--dark-violet);
+  margin-top: auto;
 }
 .get-started__text {
   position: absolute;
@@ -203,7 +310,6 @@ body svg {
 }
 
 footer {
-  margin-top: auto;
   display: flex;
   justify-content: center;
   align-items: flex-start;
