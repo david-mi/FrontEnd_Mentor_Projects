@@ -1,6 +1,4 @@
 const main = document.getElementById("main");
-import { pause } from "./icones/icones";
-import { dice } from "./icones/icones";
 
 const buttonClick = () => {
     return dataApi()
@@ -23,18 +21,10 @@ const createHTML = ({ id, advice}) => {
     adviceEl.classList.add("advice")
     adviceEl.innerText = `“${advice}”`
 
-    const pauseEl = document.createElement("div")
-    pauseEl.insertAdjacentHTML("afterbegin", pause)
-    pauseEl.classList.add("pause")
-
     const buttonCitation = document.createElement("button")
     buttonCitation.addEventListener("click", buttonClick)
 
-    const dice = document.createElement("div")
-    dice.insertAdjacentHTML(innerText, "dice")
-    dice.classList.add("dice")
-
-    container.append(idAdvice, adviceEl, pause, dice, buttonCitation)
+    container.append(idAdvice, adviceEl, buttonCitation)
     return container
 }
 
