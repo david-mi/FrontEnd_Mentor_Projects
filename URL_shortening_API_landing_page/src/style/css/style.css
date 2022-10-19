@@ -31,7 +31,6 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
-  height: 100vh;
   max-width: var(--media-desktop);
   margin: auto;
   min-width: 300px;
@@ -159,20 +158,20 @@ body svg {
 .statistics {
   position: relative;
   background-color: #f0f1f6;
-  padding: 250px 0;
+  padding: 100px 0;
   width: 100%;
   display: grid;
   column-gap: 30px;
   justify-items: center;
   grid-template-columns: 1fr repeat(3, auto) 1fr;
-  grid-template-areas: ". title title title ." ". desc desc desc . " ". card1 card2 card3 . ";
+  grid-template-areas: " . stats stats stats ." ". title title title ." ". desc desc desc . " ". card1 card2 card3 . ";
 }
 @media screen and (max-width: 1200px) {
   .statistics {
-    padding: 100px 0;
+    padding: 120px 0;
     row-gap: 40px;
     grid-template-columns: 1fr;
-    grid-template-areas: "title" "desc" "card1" "card2" "card3";
+    grid-template-areas: "stats" "title" "desc" "card1" "card2" "card3";
   }
 }
 .statistics::before {
@@ -181,20 +180,22 @@ body svg {
   background-color: var(--cyan);
   height: 8px;
   width: 50%;
-  bottom: 420px;
-}
-@media screen and (max-width: 1200px) {
-  .statistics::before {
-    height: 50%;
-    width: 6px;
-    bottom: 310px;
-  }
+  bottom: 270px;
 }
 .statistics h2 {
   grid-area: title;
   font-size: 2.5rem;
   color: var(--very-dark-violet);
   margin-bottom: 20px;
+  margin-top: 170px;
+}
+@media screen and (max-width: 800px) {
+  .statistics h2 {
+    margin-top: 20px;
+  }
+}
+.statistics .links {
+  grid-area: stats;
 }
 .statistics .description {
   grid-area: desc;
@@ -218,6 +219,7 @@ body svg {
   box-shadow: 0 0 2px var(--gray);
   background-color: white;
   padding: 60px 30px 0 30px;
+  z-index: 10;
 }
 @media screen and (max-width: 1200px) {
   .statistics .card {
@@ -238,11 +240,23 @@ body svg {
 }
 .statistics .card.second {
   grid-area: card2;
+  z-index: 1;
 }
 .statistics .card.third {
   grid-area: card3;
   top: 40px;
-  z-index: 10;
+  z-index: 0;
+}
+@media screen and (max-width: 1200px) {
+  .statistics .card.second::before, .statistics .card.third::before {
+    content: "";
+    position: absolute;
+    background-color: var(--cyan);
+    width: 8px;
+    height: 100px;
+    top: -100px;
+    z-index: -1;
+  }
 }
 .statistics .card .icon-container {
   left: 20%;
@@ -381,7 +395,7 @@ footer ul:last-child a {
 }
 
 .presentation {
-  padding: 50px 0px 150px 100px;
+  padding: 50px 0px 0px 100px;
   display: flex;
   justify-content: center;
   width: 100%;
@@ -393,17 +407,12 @@ footer ul:last-child a {
     align-items: center;
     text-align: center;
     gap: 50px;
-    padding: 50px 50px 150px 50px;
-  }
-}
-@media screen and (max-width: 1369px) {
-  .presentation {
-    padding: 50px 0px 150px 0px;
+    padding: 50px 0px 0px 0px;
   }
 }
 @media screen and (max-width: 750px) {
   .presentation {
-    padding: 0px 0px 150px 0px;
+    padding: 0px;
   }
 }
 .presentation svg {
@@ -420,7 +429,7 @@ footer ul:last-child a {
   font-size: 5rem;
   line-height: 6rem;
   color: var(--very-dark-blue);
-  max-width: 520px;
+  max-width: 800px;
 }
 @media screen and (max-width: 750px) {
   .presentation h1 {
@@ -433,6 +442,142 @@ footer ul:last-child a {
   margin-bottom: 50px;
   font-size: 1.2rem;
   color: var(--grayish-violet);
+}
+@media screen and (max-width: 1369px) {
+  .presentation p {
+    margin: 0 auto 50px;
+  }
+}
+
+form {
+  position: relative;
+  background-color: var(--dark-violet);
+  height: 168px;
+  max-width: 1110px;
+  width: 80%;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  padding-inline: 50px;
+  border-radius: 10px;
+  overflow: hidden;
+  transform: translateY(50%);
+  z-index: 10;
+}
+@media screen and (max-width: 750px) {
+  form {
+    flex-direction: column;
+    height: 182px;
+    justify-content: center;
+    max-width: 500px;
+  }
+}
+form input,
+form button {
+  position: relative;
+  z-index: 1;
+  height: 65px;
+}
+@media screen and (max-width: 750px) {
+  form input,
+form button {
+    width: 90%;
+    max-height: 50px;
+  }
+}
+form button {
+  padding: 15px 35px;
+  background-color: var(--cyan);
+  color: white;
+  border-radius: 10px;
+  font-size: 1.2rem;
+  font-weight: bold;
+  border: none;
+  cursor: pointer;
+}
+@media screen and (max-width: 750px) {
+  form button {
+    padding: 0;
+  }
+}
+form button:hover {
+  background-color: var(--cyan);
+}
+form input {
+  flex: 1;
+  border-radius: 10px;
+  border: none;
+  padding: 10px 20px;
+  font-size: 1.3rem;
+}
+form input::placeholder {
+  color: var(--gray);
+}
+form svg {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+}
+
+.links {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  width: 80%;
+}
+.links .link {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 30px;
+  background-color: white;
+  padding: 20px;
+  box-shadow: 0 0 2px var(--gray);
+  border-radius: 5px;
+  font-size: 1.1rem;
+}
+@media screen and (max-width: 800px) {
+  .links .link {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
+.links .link p {
+  position: relative;
+  width: 100%;
+}
+@media screen and (max-width: 800px) {
+  .links .link p::before {
+    position: absolute;
+    content: "";
+    height: 1px;
+    width: 100%;
+    bottom: -15px;
+    background-color: var(--gray);
+  }
+}
+.links .link a {
+  margin-left: auto;
+  color: var(--cyan);
+}
+@media screen and (max-width: 800px) {
+  .links .link a {
+    margin-left: 0;
+  }
+}
+.links .link button {
+  background-color: var(--cyan);
+  border-radius: 5px;
+  color: white;
+  font-weight: bold;
+  padding: 8px 30px;
+  border: none;
+  cursor: pointer;
+}
+@media screen and (max-width: 800px) {
+  .links .link button {
+    width: 100%;
+  }
 }
 
 /*# sourceMappingURL=style.css.map */
