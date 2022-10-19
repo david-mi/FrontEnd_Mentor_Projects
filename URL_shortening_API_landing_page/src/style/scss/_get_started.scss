@@ -19,11 +19,12 @@
   }
 
   &__link {
-    padding: 10px 25px;
-
+    padding: 15px 35px;
     background-color: var(--cyan);
     color: white;
     border-radius: 30px;
+    font-size: 1.2rem;
+    font-weight: bold;
 
     &:hover {
       background-color: var(--cyan);
