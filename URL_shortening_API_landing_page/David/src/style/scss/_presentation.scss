@@ -1,0 +1,52 @@
+.presentation {
+  padding: 50px 0px 0px 100px;
+  display: flex;
+  justify-content: center;
+
+  @media screen and (max-width: 1369px) {
+    flex-direction: column-reverse;
+    align-items: center;
+    text-align: center;
+    gap: 50px;
+    padding: 50px 0px 0px 0px;
+  }
+
+  @media screen and (max-width: 750px) {
+    padding: 0px;
+  }
+
+  svg {
+    width: 733px;
+    height: 482px;
+
+    @media screen and (max-width: 750px) {
+      margin-left: auto;
+      width: 500px;
+    }
+  }
+
+  h1 {
+    font-size: 5rem;
+    line-height: 6rem;
+    color: var(--very-dark-blue);
+    max-width: 800px;
+
+    @media screen and (max-width: 750px) {
+      font-size: 4rem;
+      line-height: 4rem;
+    }
+  }
+
+  width: 100%;
+  display: flex;
+
+  p {
+    max-width: 520px;
+    margin-bottom: 50px;
+    font-size: 1.2rem;
+    color: var(--grayish-violet);
+    @media screen and (max-width: 1369px) {
+      margin: 0 auto 50px;
+    }
+  }
+}

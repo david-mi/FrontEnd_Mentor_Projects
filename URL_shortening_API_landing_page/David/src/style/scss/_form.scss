@@ -1,0 +1,71 @@
+form {
+  position: relative;
+  background-color: var(--dark-violet);
+  height: 168px;
+  max-width: 1110px;
+  width: 80%;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  padding-inline: 50px;
+  border-radius: 10px;
+  overflow: hidden;
+  transform: translateY(50%);
+  z-index: 10;
+
+  @media screen and (max-width: 750px) {
+    flex-direction: column;
+    height: 182px;
+    justify-content: center;
+    max-width: 500px;
+  }
+
+  input,
+  button {
+    position: relative;
+    z-index: 1;
+    height: 65px;
+
+    @media screen and (max-width: 750px) {
+      width: 90%;
+      max-height: 50px;
+    }
+  }
+
+  button {
+    padding: 15px 35px;
+    background-color: var(--cyan);
+    color: white;
+    border-radius: 10px;
+    font-size: 1.2rem;
+    font-weight: bold;
+    border: none;
+    cursor: pointer;
+
+    @media screen and (max-width: 750px) {
+      padding: 0;
+    }
+
+    &:hover {
+      background-color: var(--cyan);
+    }
+  }
+
+  input {
+    flex: 1;
+    border-radius: 10px;
+    border: none;
+    padding: 10px 20px;
+    font-size: 1.3rem;
+
+    &::placeholder {
+      color: var(--gray);
+    }
+  }
+
+  svg {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+  }
+}
