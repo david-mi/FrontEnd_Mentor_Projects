@@ -50,9 +50,14 @@
       border-radius: 5px;
       color: white;
       font-weight: bold;
-      padding: 8px 30px;
+      padding-block: 8px;
+      width: 150px;
       border: none;
       cursor: pointer;
+
+      &.copied {
+        background-color: var(--dark-violet);
+      }
 
       @media screen and (max-width: 800px) {
         width: 100%;
