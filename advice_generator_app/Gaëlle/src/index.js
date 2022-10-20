@@ -1,4 +1,5 @@
 const main = document.getElementById("main");
+import { pause } from "./icone/pause.js"
 
 const buttonClick = () => {
     dataApi()
@@ -24,10 +25,14 @@ const createHTML = ({ id, advice}) => {
     adviceEl.classList.add("advice")
     adviceEl.innerText = `“${advice}”`
 
+    const pauseEl= document.createElement("div")
+    pauseEl.insertAdjacentHTML("afterbegin", pause)
+    pauseEl.classList.add("pause")
+
     const buttonCitation = document.createElement("button")
     buttonCitation.addEventListener("click", buttonClick)
 
-    container.append(idAdvice, adviceEl, buttonCitation)
+    container.append(idAdvice, adviceEl, pauseEl, buttonCitation)
     return container
 }
 

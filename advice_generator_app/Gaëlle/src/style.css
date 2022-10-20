@@ -8,7 +8,7 @@
 }
 
 * {
-    margin: 0;
+    margin: 0 20px;
     padding: 0;
     box-sizing: border-box;
     font-family: 'Manrope', sans-serif;
@@ -40,11 +40,21 @@ article {
 .id {
     color: var(--neon-green);
     letter-spacing: 7px;
+    margin-top: 25px;
 }
 
 .advice {
     color: var(--light-cyan);
     font-size: var(--font-size);
+    margin-bottom: 30px;
+
+}
+
+.pause {
+    position: relative;
+    width: 100%;
+    margin-top: 0;
+    margin-bottom: 30px;
 }
 
 button {
@@ -53,7 +63,7 @@ button {
     display: flex;
     justify-content: center;
     position: absolute;
-    left: 45%;
+    left: 40.5%;
     bottom: -10%;
     border: transparent;
     border-radius: 100%;
