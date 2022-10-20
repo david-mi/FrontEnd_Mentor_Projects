@@ -1,10 +1,13 @@
 const main = document.getElementById("main");
 
 const buttonClick = () => {
-    return dataApi()
+    dataApi()
     .then(data => {
         const id = data.slip.id
         const advice = data.slip.advice
+        const adviceEl = document.querySelector (".advice")
+        const idAdvice = document.querySelector (".id")
+
         adviceEl.innerText = `“${advice}”`
         idAdvice.innerText = `ADVICE #${id}`
     })
@@ -29,12 +32,16 @@ const createHTML = ({ id, advice}) => {
 }
 
 const dataApi = () => {
-    fetch("https://api.adviceslip.com/advice")
+    return fetch("https://api.adviceslip.com/advice")
     .then(response => response.json())
-    .then(data => {
-        console.log(data.slip);
-        const section = createHTML(data.slip)
-        main.append(section)
-    })
+};
+
+const init = () => {
+    dataApi()
+        .then(data => {
+            console.log(data);
+            const section = createHTML(data.slip)
+            main.append(section)
+        })
 }
-dataApi()
+init();
