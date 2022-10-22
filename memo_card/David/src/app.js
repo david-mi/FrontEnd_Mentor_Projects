@@ -40,7 +40,7 @@ const insertFruitLogosInCards = () => {
   cards.forEach((card, index) => {
     const currentFruit = randomisedFruits[index];
     card.dataset.fruit = currentFruit;
-    card.style.backgroundImage = `url("../icons/${currentFruit}.svg")`;
+    card.style.backgroundImage = `url("./icons/${currentFruit}.svg")`;
     card.addEventListener("click", handleCardClick);
   });
 };
