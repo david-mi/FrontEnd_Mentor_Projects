@@ -41,6 +41,7 @@ a {
   overflow: hidden;
   justify-content: space-evenly;
   background-color: whitesmoke;
+  /* background-color: #16bdff; */
   box-shadow: 0 0 2px rgb(105, 105, 105);
   border-radius: 20px;
   padding: 10px;
@@ -50,11 +51,16 @@ a {
   /* cursor: pointer; */
 }
 
+.card p {
+  margin-bottom: 5px;
+}
+
 .card img {
   height: 200px;
   width: 100%;
   object-fit: cover;
   border-radius: 20px;
+  border: solid 2px #16bdff;
 }
 
 .card:hover {
