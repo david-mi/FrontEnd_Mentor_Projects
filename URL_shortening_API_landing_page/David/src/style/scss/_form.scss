@@ -17,7 +17,7 @@ form {
     flex-direction: column;
     height: 182px;
     justify-content: center;
-    max-width: 500px;
+    width: 95%;
   }
 
   input,
@@ -55,11 +55,18 @@ form {
     flex: 1;
     border-radius: 10px;
     border: none;
-    padding: 10px 20px;
+    padding: 10px;
     font-size: 1.3rem;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
 
     &::placeholder {
       color: var(--gray);
+    }
+
+    &:placeholder-shown {
+      text-overflow: ellipsis;
     }
   }
 

@@ -192,6 +192,7 @@ body svg {
 @media screen and (max-width: 800px) {
   .statistics h2 {
     margin-top: 20px;
+    text-align: center;
   }
 }
 .statistics .links {
@@ -415,15 +416,13 @@ footer ul:last-child a {
     padding: 0px;
   }
 }
-.presentation svg {
-  width: 733px;
-  height: 482px;
+.presentation .svg-container {
+  width: 100%;
+  height: 500px;
 }
-@media screen and (max-width: 750px) {
-  .presentation svg {
-    margin-left: auto;
-    width: 500px;
-  }
+.presentation .svg-container img {
+  width: 100%;
+  height: 100%;
 }
 .presentation h1 {
   font-size: 5rem;
@@ -435,6 +434,7 @@ footer ul:last-child a {
   .presentation h1 {
     font-size: 4rem;
     line-height: 4rem;
+    margin-bottom: 30px;
   }
 }
 .presentation p {
@@ -469,7 +469,7 @@ form {
     flex-direction: column;
     height: 182px;
     justify-content: center;
-    max-width: 500px;
+    width: 95%;
   }
 }
 form input,
@@ -507,11 +507,17 @@ form input {
   flex: 1;
   border-radius: 10px;
   border: none;
-  padding: 10px 20px;
+  padding: 10px;
   font-size: 1.3rem;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 form input::placeholder {
   color: var(--gray);
+}
+form input:placeholder-shown {
+  text-overflow: ellipsis;
 }
 form svg {
   position: absolute;
