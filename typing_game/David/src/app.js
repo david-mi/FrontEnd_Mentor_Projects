@@ -3,19 +3,26 @@ const sentenceElement = document.querySelector(".sentence-container");
 const inputElement = document.querySelector("input");
 const timerElement = document.querySelector(".timer");
 const scoreElement = document.querySelector(".score");
+const accuracyElement = document.querySelector(".accuracy");
 
 let intervalId = null;
 let timer = 30;
+let faultCount = 0;
+let correctCount = 0;
 
 document.addEventListener("keydown", handleKeyDown);
 function handleKeyDown(event) {
-  if (event.key === "Escape") {
+  if (event.key === "Escape" || event.key === "Tab") {
+    event.preventDefault();
     clearInterval(intervalId);
     timer = 30;
     timerElement.innerText = timer;
     intervalId = null;
     inputElement.value = "";
     scoreElement.innerText = 0;
+    faultCount = 0;
+    correctCount = 0;
+    accuracyElement.innerText = 100;
     getAndShowSentence();
     inputElement.disabled = false;
   } else if (/^([a-z ,.;:()-_]{1})$|Shift/i.test(event.key) === false) {
@@ -40,6 +47,7 @@ function handleTextInput(event) {
     }, 1000);
   }
   const isCurrentCharValid = compareCurrentChar(userInput);
+  handleAccuracy(isCurrentCharValid);
   handleScore(isCurrentCharValid);
   checkIfSentenceFinished(userInput);
 }
@@ -50,6 +58,17 @@ function handleScore(isValid) {
   if (isValid) {
     scoreElement.innerText = currentScore + 1;
   }
+}
+
+function handleAccuracy(isCurrentCharValid) {
+  if (isCurrentCharValid === false) {
+    faultCount++;
+  } else {
+    correctCount++;
+  }
+
+  const accuracy = 100 * correctCount / (faultCount + correctCount);
+  accuracyElement.innerText = accuracy.toFixed(2);
 }
 
 function checkIfSentenceFinished(userInput) {

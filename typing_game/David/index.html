@@ -3,25 +3,16 @@
 
 <head>
   <meta charset="UTF-8" />
-  <meta
-    name="viewport"
-    content="width=device-width, initial-scale=1.0"
-  />
-  <meta
-    http-equiv="X-UA-Compatible"
-    content="ie=edge"
-  />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
   <title>Typing Game</title>
-  <link
-    rel="stylesheet"
-    href="src/style.css"
-  />
+  <link rel="stylesheet" href="src/style.css" />
 </head>
 
 <body>
   <div class="container">
     <h1>Typing Game</h1>
-    <p class="instructions">Press <span>Escape</span> to restart</p>
+    <p class="instructions">Press <span>Escape / Tab</span> to restart</p>
     <div class="infos">
       <div>
         Time <span class="timer">30</span>
@@ -29,16 +20,18 @@
       <div>
         Score: <span class="score">0</span>
       </div>
+      <div>
+        Accuracy:
+        <span class="accuracy">100</span>
+        %
+      </div>
     </div>
     <p class="sentence-container">
     </p>
     <input>
     </input>
   </div>
-  <script
-    src="src/app.js"
-    type="module"
-  ></script>
+  <script src="src/app.js" type="module"></script>
 </body>
 
 </html>
