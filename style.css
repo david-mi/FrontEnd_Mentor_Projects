@@ -8,7 +8,6 @@
 
 body {
   font-family: 'Sora', sans-serif;
-  height: 100vh;
   display: flex;
   gap: 50px;
   flex-direction: column;
@@ -16,6 +15,12 @@ body {
   padding: 20px;
   max-width: 1440px;
   margin: auto;
+}
+
+h1,
+h2 {
+  width: 100%;
+  margin-block: 30px;
 }
 
 ul {
@@ -29,7 +34,7 @@ a {
 
 .cards {
   display: flex;
-  justify-content: space-evenly;
+  justify-content: flex-start;
   flex-wrap: wrap;
   gap: 20px;
 }
@@ -39,15 +44,20 @@ a {
   display: flex;
   flex-direction: column;
   overflow: hidden;
-  justify-content: space-evenly;
+  justify-content: space;
   background-color: whitesmoke;
+  /* background-color: #16bdff; */
   box-shadow: 0 0 2px rgb(105, 105, 105);
   border-radius: 20px;
   padding: 10px;
   flex: 1 1 300px;
-  max-width: 400px;
+  max-width: 600px;
   transition: 300ms ease-in-out;
   /* cursor: pointer; */
+}
+
+.card p {
+  margin-bottom: 5px;
 }
 
 .card img {
@@ -55,6 +65,7 @@ a {
   width: 100%;
   object-fit: cover;
   border-radius: 20px;
+  border: solid 2px #16bdff;
 }
 
 .card:hover {

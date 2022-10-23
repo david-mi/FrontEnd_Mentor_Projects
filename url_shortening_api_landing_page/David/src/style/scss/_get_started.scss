@@ -1,0 +1,54 @@
+.get-started {
+  position: relative;
+  width: 100%;
+  background-color: var(--dark-violet);
+  margin-top: auto;
+
+  &__text {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+
+    h3 {
+      color: white;
+    }
+  }
+
+  &__link {
+    padding: 15px 35px;
+    background-color: var(--cyan);
+    color: white;
+    border-radius: 30px;
+    font-size: 1.2rem;
+    font-weight: bold;
+
+    &:hover {
+      background-color: var(--cyan);
+    }
+  }
+
+  svg {
+    width: 100%;
+  }
+
+  &__svg-desktop {
+    max-width: 1440px;
+    width: 100%;
+    display: block;
+    @media screen and (max-width: 375px) {
+      display: none;
+    }
+  }
+
+  &__svg-mobile {
+    display: none;
+    max-width: 375px;
+    @media screen and (max-width: 375px) {
+      display: block;
+    }
+  }
+}
