@@ -19,8 +19,19 @@ body {
 
 h1,
 h2 {
-  width: 100%;
-  margin-block: 30px;
+  text-align: center;
+}
+
+h1 {
+  font-size: 3rem;
+  padding-bottom: 0;
+}
+
+h2 {
+  color: white;
+  background-color: #16bdff;
+  padding: 10px 20px;
+  margin-block: clamp(0px, 2vw, 30px);
 }
 
 ul {
@@ -33,9 +44,10 @@ a {
 }
 
 .cards {
-  display: flex;
-  justify-content: flex-start;
-  flex-wrap: wrap;
+  display: grid;
+  width: 100%;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+
   gap: 20px;
 }
 
@@ -44,14 +56,12 @@ a {
   display: flex;
   flex-direction: column;
   overflow: hidden;
-  justify-content: space;
   background-color: whitesmoke;
   /* background-color: #16bdff; */
   box-shadow: 0 0 2px rgb(105, 105, 105);
   border-radius: 20px;
   padding: 10px;
-  flex: 1 1 300px;
-  max-width: 600px;
+  /* flex: 1 1 300px; */
   transition: 300ms ease-in-out;
   /* cursor: pointer; */
 }
