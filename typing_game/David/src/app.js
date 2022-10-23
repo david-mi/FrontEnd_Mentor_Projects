@@ -22,7 +22,7 @@ function handleKeyDown(event) {
     scoreElement.innerText = 0;
     faultCount = 0;
     correctCount = 0;
-    accuracyElement.innerText = 100;
+    accuracyElement.innerText = 100 + ".00%";
     getAndShowSentence();
     inputElement.disabled = false;
   } else if (/^([a-z ,.;:()-_]{1})$|Shift/i.test(event.key) === false) {
@@ -68,7 +68,7 @@ function handleAccuracy(isCurrentCharValid) {
   }
 
   const accuracy = 100 * correctCount / (faultCount + correctCount);
-  accuracyElement.innerText = accuracy.toFixed(2);
+  accuracyElement.innerText = accuracy.toFixed(2) + "%";
 }
 
 function checkIfSentenceFinished(userInput) {
