@@ -5,13 +5,13 @@ const timerElement = document.querySelector(".timer");
 const scoreElement = document.querySelector(".score");
 
 let intervalId = null;
-let timer = 10;
+let timer = 30;
 
 document.addEventListener("keydown", handleKeyDown);
 function handleKeyDown(event) {
   if (event.key === "Escape") {
     clearInterval(intervalId);
-    timer = 10;
+    timer = 30;
     timerElement.innerText = timer;
     intervalId = null;
     inputElement.value = "";
