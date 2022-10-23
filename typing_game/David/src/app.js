@@ -25,7 +25,7 @@ function handleKeyDown(event) {
     accuracyElement.innerText = 100 + ".00%";
     getAndShowSentence();
     inputElement.disabled = false;
-  } else if (/^([a-z ,.;:()-_]{1})$|Shift/i.test(event.key) === false) {
+  } else if (/^([a-z ,.;'":()-_]{1})$|Shift/i.test(event.key) === false) {
     event.preventDefault();
   }
 }
