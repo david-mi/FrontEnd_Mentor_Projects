@@ -14,6 +14,10 @@ async function handleSubmit(event) {
   const ipValue = form.ip.value;
   if (/(\d+\.){3}\d+/.test(ipValue) === false) return;
 
+  showInfosAndPrintMap(ipValue);
+}
+
+async function showInfosAndPrintMap(ipValue) {
   const ipInfosFromApi = await getIpInfos(ipValue);
   const location = ipInfosFromApi.location;
   const { lat, lng } = location;
@@ -38,6 +42,6 @@ const printMap = async (lat, long) => {
   L.marker([lat, long]).addTo(map);
 };
 
-
+showInfosAndPrintMap("8.8.8.8")
 
 
