@@ -1,0 +1,12 @@
+{
+  "name": "ip-address-tracker",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "sass": "sass --watch ./src/style/scss:./src/style/css/"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
