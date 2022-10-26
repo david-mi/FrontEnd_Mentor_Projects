@@ -1,0 +1,50 @@
+.infos {
+  position: relative;
+  align-self: center;
+  transform: translateY(-50%);
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  padding-block: 20px;
+  box-shadow: 0 0 5px var(--clr-dgrey);
+  max-width: 1200px;
+  width: 100%;
+  background-color: white;
+  border-radius: 0.8rem;
+
+  div {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    gap: 10px;
+    padding-left: 30px;
+
+    &::after {
+      position: absolute;
+      content: "";
+      width: 2px;
+      height: 100%;
+      left: 0;
+      background-color: var(--clr-dgrey);
+    }
+
+    &.ip::after {
+      width: 0;
+    }
+
+    h2 {
+      font-size: 0.8rem;
+      color: var(--clr-dgrey);
+    }
+
+    p {
+      font-size: 1.5rem;
+      font-weight: 500;
+      max-width: 150px;
+    }
+  }
+
+  .ip p {
+    max-width: 100%;
+  }
+}

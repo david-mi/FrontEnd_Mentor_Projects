@@ -1,5 +1,121 @@
+@import url("https://fonts.googleapis.com/css2?family=Rubik:wght@400;500;700&display=swap");
+:root {
+  --clr-vdgrey: hsl(0, 0%, 17%);
+  --clr-dgrey: hsl(0, 0%, 59%);
+  --media-mobile: 375px;
+  --media-desktop: 1440px;
+}
+
+* {
+  font-family: "Rubik", sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+img {
+  display: block;
+}
+
 body {
-  background-color: red;
+  font-size: 18px;
+  display: flex;
+  max-width: 1440px;
+  margin: auto;
+}
+
+main {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.form {
+  background: url("../../images/pattern-bg.png") no-repeat;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 30px;
+  height: 250px;
+}
+.form form {
+  height: 3rem;
+  display: inline-flex;
+  max-width: 600px;
+  width: 100%;
+}
+.form h1 {
+  margin-top: 30px;
+  color: white;
+  font-weight: 400;
+}
+.form input {
+  border-radius: 0.9rem 0 0 0.9rem;
+  border: none;
+  padding-left: 20px;
+  font-size: 1.1rem;
+  width: 100%;
+}
+.form input:focus {
+  outline: solid 2px var(--clr-vdgrey);
+  outline-offset: -2px;
+}
+.form button {
+  background-color: var(--clr-vdgrey);
+  border: none;
+  width: 50px;
+  display: grid;
+  place-items: center;
+  border-radius: 0 0.9rem 0.9rem 0;
+}
+
+.infos {
+  position: relative;
+  align-self: center;
+  transform: translateY(-50%);
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  padding-block: 20px;
+  box-shadow: 0 0 5px var(--clr-dgrey);
+  max-width: 1200px;
+  width: 100%;
+  background-color: white;
+  border-radius: 0.8rem;
+}
+.infos div {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  gap: 10px;
+  padding-left: 30px;
+}
+.infos div::after {
+  position: absolute;
+  content: "";
+  width: 2px;
+  height: 100%;
+  left: 0;
+  background-color: var(--clr-dgrey);
+}
+.infos div.ip::after {
+  width: 0;
+}
+.infos div h2 {
+  font-size: 0.8rem;
+  color: var(--clr-dgrey);
+}
+.infos div p {
+  font-size: 1.5rem;
+  font-weight: 500;
+  max-width: 150px;
+}
+.infos .ip p {
+  max-width: 100%;
+}
+
+#map {
+  height: 500px;
 }
 
 /*# sourceMappingURL=index.css.map */
