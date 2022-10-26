@@ -1,5 +1,4 @@
-import { getIpMachin } from "./api.js";
-
+import { getIpInfos } from "./api.js";
 const form = document.querySelector("form");
 const ipElement = document.querySelector(".ip p");
 const locationElement = document.querySelector(".location p");
@@ -8,16 +7,14 @@ const ispElement = document.querySelector(".isp p");
 
 form.addEventListener("submit", handleSubmit);
 
-const map = L
-  .map('map');
+const map = L.map('map');
 
 async function handleSubmit(event) {
   event.preventDefault();
-
   const ipValue = form.ip.value;
-  if (ipValue === "") return;
+  if (/(\d+\.){3}\d+/.test(ipValue) === false) return;
 
-  const ipInfosFromApi = await getIpMachin(ipValue);
+  const ipInfosFromApi = await getIpInfos(ipValue);
   const location = ipInfosFromApi.location;
   const { lat, lng } = location;
 
@@ -33,22 +30,12 @@ function showInfos(ipInfosFromApi) {
   locationElement.innerText = `${city}, ${region} ${postalCode}`;
   timezoneElement.innerText = timezone;
   ispElement.innerText = isp;
-  console.log({ ip, isp, city, postalCode, region, timezone });
 }
 
-
 const printMap = async (lat, long) => {
-
   map.setView([lat, long], 13);
-  L
-    .tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png')
-    .addTo(map);
-
-  L
-    .marker([lat, long])
-    .addTo(map);
-
-  console.log(map);
+  L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png').addTo(map);
+  L.marker([lat, long]).addTo(map);
 };
 
 
