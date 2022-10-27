@@ -7,7 +7,7 @@
   padding: 20px;
   box-shadow: 0 0 5px var(--clr-dgrey);
   max-width: 1200px;
-  height: 130px;
+  min-height: 150px;
   width: 90%;
   background-color: white;
   border-radius: 0.8rem;
@@ -16,6 +16,7 @@
   @media screen and (max-width: 800px) {
     flex-direction: column;
     height: 320px;
+    min-height: auto;
     gap: 20px;
   }
 
