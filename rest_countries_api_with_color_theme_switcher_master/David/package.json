@@ -1,0 +1,12 @@
+{
+  "name": "david",
+  "version": "1.0.0",
+  "description": "![Design preview for the REST Countries API with color theme switcher coding challenge](./design/desktop-preview.jpg)",
+  "main": "index.js",
+  "scripts": {
+    "sass": "sass --watch ./src/style/scss:./src/style/css/"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
