@@ -1,3 +1,74 @@
+@import url("https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@300;600;800&display=swap");
+header {
+  transition: 500ms;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 80px;
+  background-color: var(--clr-element);
+  padding-inline: clamp(0px, 2vw, 50px);
+  box-shadow: 3px 3px 5px var(--clr-background);
+}
+header h1 {
+  font-size: 1.5rem;
+}
+header .dark-mode-btn {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  transition: 300ms;
+  font-weight: 600;
+}
+header .dark-mode-btn::before {
+  content: "\f186";
+  font-family: "FontAwesome";
+  font-size: 1rem;
+  font-weight: 400;
+  rotate: -20deg;
+}
+header .dark-mode-btn.dark::before {
+  font-weight: 900;
+}
 
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Nunito Sans", sans-serif;
+}
+*::before, *::after {
+  box-sizing: border-box;
+}
+
+body {
+  --clr-text: hsl(200, 15%, 8%);
+  --clr-element: hsl(0, 0%, 100%);
+  --clr-background: hsl(0, 0%, 98%);
+  --lm-very-dark-blue: hsl(200, 15%, 8%);
+  --lm-dark-grey: hsl(0, 0%, 52%);
+  --white: hsl(0, 0%, 100%);
+  --font-homepage: 14px;
+  --font-details: 16px;
+  --media-mobile: 375px;
+  --media-desktop: 1440px;
+  font-size: var(--font-homepage);
+  max-width: var(--media-desktop);
+  margin: auto;
+  background-color: var(--clr-background);
+  color: var(--clr-text);
+  transition: 200ms ease-in-out;
+}
+body[data-theme=dark] {
+  --clr-text: hsl(0, 0%, 100%);
+  --clr-background: hsl(207, 26%, 17%);
+  --clr-element: hsl(209, 23%, 22%);
+}
+
+button {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  color: var(--clr-text);
+}
 
 /*# sourceMappingURL=style.css.map */

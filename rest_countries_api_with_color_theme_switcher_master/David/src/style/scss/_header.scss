@@ -1,0 +1,34 @@
+header {
+  transition: 500ms;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 80px;
+  background-color: var(--clr-element);
+  padding-inline: clamp(0px, 2vw, 50px);
+  box-shadow: 3px 3px 5px var(--clr-background);
+
+  h1 {
+    font-size: 1.5rem;
+  }
+
+  .dark-mode-btn {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    transition: 300ms;
+    font-weight: 600;
+
+    &::before {
+      content: "\f186";
+      font-family: "FontAwesome";
+      font-size: 1rem;
+      font-weight: 400;
+      rotate: -20deg;
+    }
+
+    &.dark::before {
+      font-weight: 900;
+    }
+  }
+}
