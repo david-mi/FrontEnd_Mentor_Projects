@@ -1,0 +1,1 @@
+export const darkModeButton = document.querySelector(".dark-mode-btn");
