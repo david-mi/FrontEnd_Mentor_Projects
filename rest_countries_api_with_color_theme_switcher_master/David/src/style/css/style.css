@@ -68,7 +68,7 @@ header .dark-mode-btn.dark::before {
 body {
   display: flex;
   flex-direction: column;
-  gap: 30px;
+  gap: 50px;
   margin: auto;
   max-width: var(--media-desktop);
   min-width: var(--media-mobile);
@@ -87,6 +87,10 @@ main,
 
 li {
   list-style: none;
+}
+
+a {
+  text-decoration: none;
 }
 
 button {
@@ -194,6 +198,76 @@ body[data-theme=dark] .search-filter .options li:hover {
 .search-filter .select .options li:hover {
   background-color: var(--dm-very-dark-blue);
   color: var(--white);
+}
+
+body[data-theme=dark] a {
+  box-shadow: 0 0 1px var(--clr-element);
+}
+body[data-theme=dark] a:hover {
+  background-color: var(--lm-very-light-gray);
+}
+body[data-theme=dark] a:hover .infos * {
+  color: var(--dm-very-dark-blue);
+}
+body[data-theme=dark] a:hover .infos h2::before {
+  border-color: black;
+}
+
+.countries {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 75px;
+}
+.countries a {
+  display: flex;
+  flex-direction: column;
+  height: 337px;
+  min-width: 265px;
+  flex: 1;
+  border-radius: 5px;
+  overflow: hidden;
+  box-shadow: 0 0 1px var(--dark-grey);
+  background-color: var(--clr-element);
+  transition: 300ms ease-out;
+}
+.countries a:hover {
+  background-color: var(--dm-very-dark-blue);
+}
+.countries a:hover .infos * {
+  color: var(--white);
+}
+.countries a:hover .infos h2::before {
+  transform: scaleX(1);
+  border-color: var(--lm-very-light-gray);
+}
+.countries a img {
+  width: 100%;
+  height: 190px;
+  object-fit: cover;
+}
+.countries a .infos {
+  padding: 25px 0 0 20px;
+}
+.countries a .infos h2 {
+  position: relative;
+  margin-bottom: 15px;
+  font-size: 1.1rem;
+  font-weight: 800;
+  width: fit-content;
+}
+.countries a .infos h2::before {
+  position: absolute;
+  content: "";
+  inset: 0;
+  border-bottom: solid 2px black;
+  transform: scaleX(0);
+  transition: 300ms;
+}
+.countries a .infos p {
+  font-weight: 600;
+}
+.countries a .infos p span {
+  font-weight: 300;
 }
 
 /*# sourceMappingURL=style.css.map */
