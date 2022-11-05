@@ -13,11 +13,13 @@ header h1 {
   font-size: clamp(1.2rem, 3vw, 1.5rem);
 }
 header .dark-mode-btn {
+  position: relative;
   display: flex;
   align-items: center;
   gap: 10px;
   transition: 300ms;
   font-weight: 600;
+  z-index: 10;
 }
 header .dark-mode-btn::before {
   content: "\f186";
@@ -34,8 +36,10 @@ header .dark-mode-btn.dark::before {
   --clr-text: hsl(200, 15%, 8%);
   --clr-element: hsl(0, 0%, 100%);
   --clr-background: hsl(0, 0%, 98%);
+  --lm-very-light-gray: hsl(0, 0%, 98%);
   --lm-very-dark-blue: hsl(200, 15%, 8%);
-  --lm-dark-grey: hsl(0, 0%, 52%);
+  --dm-very-dark-blue: hsl(207, 26%, 17%);
+  --dark-grey: hsl(0, 0%, 52%);
   --white: hsl(0, 0%, 100%);
   --font-homepage: 14px;
   --font-details: 16px;
@@ -72,6 +76,7 @@ body {
   color: var(--clr-text);
   font-size: var(--font-homepage);
   transition: 200ms ease-in-out;
+  min-height: 100vh;
 }
 
 header,
@@ -89,6 +94,14 @@ button {
   border: none;
   cursor: pointer;
   color: var(--clr-text);
+}
+
+body[data-theme=dark] .search-filter input:focus {
+  outline: solid 2px var(--dark-grey);
+}
+body[data-theme=dark] .search-filter .options li:hover {
+  background-color: var(--lm-very-light-gray);
+  color: var(--dm-very-dark-blue);
 }
 
 .search-filter {
@@ -133,6 +146,9 @@ button {
   width: 100%;
   border: none;
 }
+.search-filter form input:focus {
+  outline: solid 2px var(--dm-very-dark-blue);
+}
 .search-filter form input::placeholder {
   color: var(--clr-text);
 }
@@ -144,12 +160,22 @@ button {
   width: 100%;
   padding-inline: 20px;
   user-select: none;
+  cursor: pointer;
+  z-index: 50;
+}
+.search-filter .select .hide {
+  display: none;
+}
+.search-filter .select .select-bg {
+  position: fixed;
+  inset: 0;
 }
 .search-filter .select::before {
   content: "\f078";
   font-family: "FontAwesome";
   position: absolute;
   right: 25px;
+  font-size: 0.8rem;
 }
 .search-filter .select .options {
   position: absolute;
@@ -158,13 +184,16 @@ button {
   background-color: var(--clr-element);
   width: 100%;
   border-radius: 5px;
-  cursor: pointer;
 }
 .search-filter .select .options li {
   height: 30px;
   padding: 20px;
   display: flex;
   align-items: center;
+}
+.search-filter .select .options li:hover {
+  background-color: var(--dm-very-dark-blue);
+  color: var(--white);
 }
 
 /*# sourceMappingURL=style.css.map */

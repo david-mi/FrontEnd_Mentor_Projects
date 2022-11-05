@@ -1,5 +1,16 @@
 @use "./mixins" as *;
 
+body[data-theme="dark"] .search-filter {
+  input:focus {
+    outline: solid 2px var(--dark-grey);
+  }
+
+  .options li:hover {
+    background-color: var(--lm-very-light-gray);
+    color: var(--dm-very-dark-blue);
+  }
+}
+
 .search-filter {
   display: flex;
   justify-content: space-between;
@@ -42,6 +53,10 @@
       width: 100%;
       border: none;
 
+      &:focus {
+        outline: solid 2px var(--dm-very-dark-blue);
+      }
+
       &::placeholder {
         color: var(--clr-text);
       }
@@ -56,12 +71,24 @@
     width: 100%;
     padding-inline: 20px;
     user-select: none;
+    cursor: pointer;
+    z-index: 50;
+
+    .hide {
+      display: none;
+    }
+
+    .select-bg {
+      position: fixed;
+      inset: 0;
+    }
 
     &::before {
       content: "\f078";
       font-family: "FontAwesome";
       position: absolute;
       right: 25px;
+      font-size: 0.8rem;
     }
 
     .options {
@@ -71,13 +98,17 @@
       background-color: var(--clr-element);
       width: 100%;
       border-radius: 5px;
-      cursor: pointer;
 
       li {
         height: 30px;
         padding: 20px;
         display: flex;
         align-items: center;
+
+        &:hover {
+          background-color: var(--dm-very-dark-blue);
+          color: var(--white);
+        }
       }
     }
   }

@@ -23,15 +23,16 @@
     <form>
       <input type="text" placeholder="Search for a country...">
     </form>
-    <div class="select">
-      <p>Filter by Region</p>
-      <ul class="options hidden">
-        <li>Filter by Region</li>
-        <li>Africa</li>
-        <li>America</li>
-        <li>Asia</li>
-        <li>Europe</li>
-        <li>Oceania</li>
+    <div class="select" aria-labelledby="select-label" tabindex="0" role="button">
+      <div class="select-bg hide"></div>
+      <p id="select-label">Filter by Region</p>
+      <ul class="options hide">
+        <li tabindex="0" class="first">Filter by Region</li>
+        <li tabindex="0">Africa</li>
+        <li tabindex="0">America</li>
+        <li tabindex="0">Asia</li>
+        <li tabindex="0">Europe</li>
+        <li tabindex="0" class="last">Oceania</li>
     </div>
     </ul>
   </div>
