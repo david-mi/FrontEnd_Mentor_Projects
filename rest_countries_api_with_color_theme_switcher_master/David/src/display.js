@@ -1,3 +1,4 @@
+import "./types.js";
 import { darkModeButton } from "./constants.js";
 import { createCountryCard } from "./create.js";
 import { reduceArrayToString } from "./helpers.js";
@@ -54,6 +55,9 @@ export const displayCountries = (countries) => {
  */
 
 const setCountryModalInfos = (country) => {
+  const countryModalImageElement = countryModal.querySelector(".country-modal img");
+  countryModalImageElement.src = country.flag;
+
   const countryModalNameElement = countryModal.querySelector(".modal__infos h2");
   countryModalNameElement.innerText = country.name;
 
