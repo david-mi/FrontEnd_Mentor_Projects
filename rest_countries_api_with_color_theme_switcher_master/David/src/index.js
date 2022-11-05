@@ -2,10 +2,10 @@ import { getCountriesFromApi } from "./api.js";
 import { darkModeButton } from "./constants.js";
 import { displayCountries, toggleDarkMode, toggleSelectMenu } from "./display.js";
 
-const selectButtonElement = document.querySelector(".select");
+const selectElement = document.querySelector(".select");
 const optionsElements = document.querySelectorAll(".options li");
 
-selectButtonElement.addEventListener("click", toggleSelectMenu);
+selectElement.addEventListener("click", toggleSelectMenu);
 optionsElements.forEach(optionElement => {
   optionElement.addEventListener("click", toggleSelectMenu);
 });

@@ -1,5 +1,12 @@
-export const createCountryCard = (countryData) => {
-  const { name, population, region, capital, flag } = countryData;
+/**
+ * Creates card link for a country
+ * 
+ * @param {Country} country 
+ * @returns {HTMLAnchorElement}
+ */
+
+export const createCountryCard = (country) => {
+  const { name, population, region, capital, flag } = country;
   const countryCardLink = document.createElement("a");
   countryCardLink.href = "#";
   countryCardLink.classList.add("country");
