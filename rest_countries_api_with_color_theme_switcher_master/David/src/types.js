@@ -10,7 +10,7 @@
  *  subregion: string,
  *  currencies : {name: string}[],
  *  languages: {name: string}[],
- *  toplevelDomain: [string]
+ *  topLevelDomain: [string]
  * }}
  */
 

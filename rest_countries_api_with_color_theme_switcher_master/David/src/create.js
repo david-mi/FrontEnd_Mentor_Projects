@@ -1,3 +1,5 @@
+import { displayCountryModal } from "./display.js";
+
 /**
  * Creates card link for a country
  * 
@@ -10,6 +12,9 @@ export const createCountryCard = (country) => {
   const countryCardLink = document.createElement("a");
   countryCardLink.href = "#";
   countryCardLink.classList.add("country");
+  countryCardLink.addEventListener("click", (event) => {
+    displayCountryModal(event, country);
+  });
 
   const countryHtmlContent = `
   <img src=${flag} alt="">
