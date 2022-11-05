@@ -1,6 +1,6 @@
 import { getCountriesFromApi } from "./api.js";
 import { darkModeButton } from "./constants.js";
-import { toggleDarkMode, toggleSelectMenu } from "./display.js";
+import { displayCountries, toggleDarkMode, toggleSelectMenu } from "./display.js";
 
 const selectButtonElement = document.querySelector(".select");
 const optionsElements = document.querySelectorAll(".options li");
@@ -14,5 +14,6 @@ darkModeButton.addEventListener("click", toggleDarkMode);
 
 (async () => {
   const countries = await getCountriesFromApi();
+  displayCountries(countries);
   console.log(countries);
 })();
