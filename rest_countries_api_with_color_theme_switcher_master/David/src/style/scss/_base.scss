@@ -1,18 +1,6 @@
 @import url("https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@300;600;800&display=swap");
 
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: "Nunito Sans", sans-serif;
-
-  &::before,
-  &::after {
-    box-sizing: border-box;
-  }
-}
-
-body {
+:root {
   --clr-text: hsl(200, 15%, 8%);
   --clr-element: hsl(0, 0%, 100%);
   --clr-background: hsl(0, 0%, 98%);
@@ -25,20 +13,48 @@ body {
   --font-details: 16px;
 
   --media-mobile: 375px;
+  --media-tablet: 600px;
   --media-desktop: 1440px;
 
-  &[data-theme="dark"] {
+  --global-inline-padding: clamp(0px, 5vw, 70px);
+
+  [data-theme="dark"] {
     --clr-text: hsl(0, 0%, 100%);
     --clr-background: hsl(207, 26%, 17%);
     --clr-element: hsl(209, 23%, 22%);
   }
+}
 
-  font-size: var(--font-homepage);
-  max-width: var(--media-desktop);
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Nunito Sans", sans-serif;
+  color: var(--clr-text);
+
+  &::before,
+  &::after {
+    box-sizing: border-box;
+  }
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
   margin: auto;
+  max-width: var(--media-desktop);
+  min-width: var(--media-mobile);
   background-color: var(--clr-background);
   color: var(--clr-text);
+  font-size: var(--font-homepage);
   transition: 200ms ease-in-out;
+}
+
+header,
+main,
+.search-filter {
+  padding-inline: clamp(0px, 5vw, 70px);
 }
 
 button {
