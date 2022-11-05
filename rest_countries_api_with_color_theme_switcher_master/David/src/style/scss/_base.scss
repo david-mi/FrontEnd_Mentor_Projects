@@ -57,6 +57,10 @@ main,
   padding-inline: clamp(0px, 5vw, 70px);
 }
 
+li {
+  list-style: none;
+}
+
 button {
   background-color: transparent;
   border: none;

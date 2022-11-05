@@ -80,6 +80,10 @@ main,
   padding-inline: clamp(0px, 5vw, 70px);
 }
 
+li {
+  list-style: none;
+}
+
 button {
   background-color: transparent;
   border: none;
@@ -99,12 +103,11 @@ button {
   }
 }
 .search-filter input,
-.search-filter select {
+.search-filter .select {
   background-color: var(--clr-element);
   font-weight: 600;
   height: 50px;
   border-radius: 5px;
-  border: none;
 }
 .search-filter form {
   display: flex;
@@ -128,18 +131,40 @@ button {
 .search-filter form input {
   padding-inline: 65px 30px;
   width: 100%;
+  border: none;
 }
 .search-filter form input::placeholder {
   color: var(--clr-text);
 }
-.search-filter select {
+.search-filter .select {
+  display: flex;
+  align-items: center;
+  position: relative;
   max-width: 200px;
   width: 100%;
   padding-inline: 20px;
+  user-select: none;
 }
-.search-filter select option {
+.search-filter .select::before {
+  content: "\f078";
+  font-family: "FontAwesome";
+  position: absolute;
+  right: 25px;
+}
+.search-filter .select .options {
+  position: absolute;
+  top: 60px;
+  left: 0;
+  background-color: var(--clr-element);
+  width: 100%;
+  border-radius: 5px;
+  cursor: pointer;
+}
+.search-filter .select .options li {
   height: 30px;
   padding: 20px;
+  display: flex;
+  align-items: center;
 }
 
 /*# sourceMappingURL=style.css.map */

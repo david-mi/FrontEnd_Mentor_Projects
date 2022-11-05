@@ -11,12 +11,11 @@
   }
 
   input,
-  select {
+  .select {
     background-color: var(--clr-element);
     font-weight: 600;
     height: 50px;
     border-radius: 5px;
-    border: none;
   }
 
   form {
@@ -41,6 +40,7 @@
     input {
       padding-inline: 65px 30px;
       width: 100%;
+      border: none;
 
       &::placeholder {
         color: var(--clr-text);
@@ -48,14 +48,37 @@
     }
   }
 
-  select {
+  .select {
+    display: flex;
+    align-items: center;
+    position: relative;
     max-width: 200px;
     width: 100%;
     padding-inline: 20px;
+    user-select: none;
 
-    option {
-      height: 30px;
-      padding: 20px;
+    &::before {
+      content: "\f078";
+      font-family: "FontAwesome";
+      position: absolute;
+      right: 25px;
+    }
+
+    .options {
+      position: absolute;
+      top: 60px;
+      left: 0;
+      background-color: var(--clr-element);
+      width: 100%;
+      border-radius: 5px;
+      cursor: pointer;
+
+      li {
+        height: 30px;
+        padding: 20px;
+        display: flex;
+        align-items: center;
+      }
     }
   }
 }
