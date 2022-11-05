@@ -5,8 +5,10 @@
   --clr-element: hsl(0, 0%, 100%);
   --clr-background: hsl(0, 0%, 98%);
 
+  --lm-very-light-gray: hsl(0, 0%, 98%);
   --lm-very-dark-blue: hsl(200, 15%, 8%);
-  --lm-dark-grey: hsl(0, 0%, 52%);
+  --dm-very-dark-blue: hsl(207, 26%, 17%);
+  --dark-grey: hsl(0, 0%, 52%);
   --white: hsl(0, 0%, 100%);
 
   --font-homepage: 14px;
@@ -49,6 +51,7 @@ body {
   color: var(--clr-text);
   font-size: var(--font-homepage);
   transition: 200ms ease-in-out;
+  min-height: 100vh;
 }
 
 header,
