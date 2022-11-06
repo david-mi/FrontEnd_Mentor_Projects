@@ -9,6 +9,7 @@ const selectBg = document.querySelector(".select-bg");
 const countryModalContainer = document.querySelector(".country-modal__container");
 const countryModal = document.querySelector(".country-modal");
 const countriesCardsContainer = document.querySelector(".countries-cards");
+const loaderElement = document.querySelector(".loader");
 
 
 /**
@@ -166,4 +167,12 @@ export const closeCountryModal = () => {
 
 export const displaySelectedOption = ({ target }) => {
   selectElementText.innerText = target.innerText;
+};
+
+/**
+ * Removes loader after data has been fetched
+ */
+
+export const removeLoader = () => {
+  loaderElement.classList.add("hide");
 };

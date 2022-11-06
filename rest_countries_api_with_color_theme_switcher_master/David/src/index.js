@@ -1,7 +1,7 @@
 import "./types.js";
 import { getCountriesFromApi } from "./api.js";
 import { darkModeButton, input } from "./constants.js";
-import { displayCountries, toggleDarkMode, toggleSelectMenu, closeCountryModal, displaySelectedOption } from "./display.js";
+import { displayCountries, toggleDarkMode, toggleSelectMenu, closeCountryModal, displaySelectedOption, removeLoader } from "./display.js";
 import { countryAlphaCodes, countries } from "./data.js";
 import { filterCountries } from "./filter.js";
 
@@ -28,5 +28,6 @@ countryModalCloseButton.addEventListener("click", closeCountryModal);
     alphaCode[alpha3Code] = name;
     return alphaCode;
   }, countryAlphaCodes);
+  removeLoader();
   displayCountries(countriesData);
 })();
