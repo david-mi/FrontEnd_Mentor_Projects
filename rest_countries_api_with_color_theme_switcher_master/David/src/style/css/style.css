@@ -24,6 +24,12 @@ header .dark-mode-btn {
   transition: 300ms;
   font-weight: 600;
   z-index: 10;
+  padding: 5px 10px;
+  border-radius: 10px;
+}
+header .dark-mode-btn:hover {
+  color: var(--white);
+  background-color: var(--dm-very-dark-blue);
 }
 header .dark-mode-btn::before {
   content: "\f186";
@@ -45,11 +51,6 @@ header .dark-mode-btn.dark::before {
   --dm-very-dark-blue: hsl(207, 26%, 17%);
   --dark-grey: hsl(0, 0%, 52%);
   --white: hsl(0, 0%, 100%);
-  --font-homepage: 14px;
-  --font-details: 16px;
-  --media-mobile: 375px;
-  --media-tablet: 600px;
-  --media-desktop: 1440px;
   --global-inline-padding: clamp(0px, 5vw, 70px);
 }
 :root [data-theme=dark] {
@@ -74,7 +75,6 @@ body {
   flex-direction: column;
   gap: 50px;
   margin: auto;
-  max-width: var(--media-desktop);
   background-color: var(--clr-background);
   color: var(--clr-text);
   font-size: var(--font-homepage);
@@ -104,12 +104,23 @@ button {
   color: var(--clr-text);
 }
 
-body[data-theme=dark] .search-filter input:focus {
-  outline: solid 2px var(--dark-grey);
+button:hover,
+a:hover,
+.options li:hover {
+  transition: 300ms ease-out;
+  background-color: var(--dm-very-dark-blue);
+  color: var(--white);
 }
-body[data-theme=dark] .search-filter .options li:hover {
+
+body[data-theme=dark] button:hover,
+body[data-theme=dark] a:hover,
+body[data-theme=dark] .options li:hover {
   background-color: var(--lm-very-light-gray);
   color: var(--dm-very-dark-blue);
+}
+
+body[data-theme=dark] .search-filter input:focus {
+  outline: solid 2px var(--dark-grey);
 }
 
 .search-filter {
@@ -196,16 +207,9 @@ body[data-theme=dark] .search-filter .options li:hover {
   display: flex;
   align-items: center;
 }
-.search-filter .select .options li:hover {
-  background-color: var(--dm-very-dark-blue);
-  color: var(--white);
-}
 
 body[data-theme=dark] a {
   box-shadow: 0 0 1px var(--clr-element);
-}
-body[data-theme=dark] a:hover {
-  background-color: var(--lm-very-light-gray);
 }
 body[data-theme=dark] a:hover .infos * {
   color: var(--dm-very-dark-blue);

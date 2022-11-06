@@ -4,11 +4,6 @@ body[data-theme="dark"] .search-filter {
   input:focus {
     outline: solid 2px var(--dark-grey);
   }
-
-  .options li:hover {
-    background-color: var(--lm-very-light-gray);
-    color: var(--dm-very-dark-blue);
-  }
 }
 
 .search-filter {
@@ -100,11 +95,6 @@ body[data-theme="dark"] .search-filter {
         padding: 20px;
         display: flex;
         align-items: center;
-
-        &:hover {
-          background-color: var(--dm-very-dark-blue);
-          color: var(--white);
-        }
       }
     }
   }

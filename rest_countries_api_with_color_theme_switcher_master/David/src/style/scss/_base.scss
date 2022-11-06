@@ -11,13 +11,6 @@
   --dark-grey: hsl(0, 0%, 52%);
   --white: hsl(0, 0%, 100%);
 
-  --font-homepage: 14px;
-  --font-details: 16px;
-
-  --media-mobile: 375px;
-  --media-tablet: 600px;
-  --media-desktop: 1440px;
-
   --global-inline-padding: clamp(0px, 5vw, 70px);
 
   [data-theme="dark"] {
@@ -45,7 +38,6 @@ body {
   flex-direction: column;
   gap: 50px;
   margin: auto;
-  max-width: var(--media-desktop);
   background-color: var(--clr-background);
   color: var(--clr-text);
   font-size: var(--font-homepage);
@@ -73,4 +65,25 @@ button {
   border: none;
   cursor: pointer;
   color: var(--clr-text);
+}
+
+button,
+a,
+.options li {
+  &:hover {
+    transition: 300ms ease-out;
+    background-color: var(--dm-very-dark-blue);
+    color: var(--white);
+  }
+}
+
+body[data-theme="dark"] {
+  button,
+  a,
+  .options li {
+    &:hover {
+      background-color: var(--lm-very-light-gray);
+      color: var(--dm-very-dark-blue);
+    }
+  }
 }

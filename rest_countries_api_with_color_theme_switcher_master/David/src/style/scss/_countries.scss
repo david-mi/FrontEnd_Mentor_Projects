@@ -5,8 +5,6 @@ body[data-theme="dark"] {
     box-shadow: 0 0 1px var(--clr-element);
 
     &:hover {
-      background-color: var(--lm-very-light-gray);
-
       .infos {
         * {
           color: var(--dm-very-dark-blue);
