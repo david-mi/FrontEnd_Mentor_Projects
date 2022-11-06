@@ -1,5 +1,5 @@
 import { countries } from "./data.js";
-import { input, selectElementText } from "./constants.js";
+import { input, selectElementText, selectElement } from "./constants.js";
 import { displayCountries } from "./display.js";
 
 /**
@@ -8,16 +8,12 @@ import { displayCountries } from "./display.js";
  */
 
 export const filterCountries = () => {
-  const selectValue = selectElementText.innerText;
+  const selectRegionValue = selectElement.dataset.region;
   const inputValueLowerCase = input.value.toLowerCase();
-
-  let region = selectValue !== "Filter by Region"
-    ? selectValue
-    : "";
 
   const filteredCountries = countries.filter(country => (
     country.name.toLowerCase().includes(inputValueLowerCase) &&
-    country.region.includes(region)
+    country.region.includes(selectRegionValue)
   ));
 
   displayCountries(filteredCountries);

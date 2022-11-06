@@ -1,5 +1,5 @@
 import "./types.js";
-import { darkModeButton, selectElementText } from "./constants.js";
+import { darkModeButton, selectElementText, selectElement } from "./constants.js";
 import { createCountryCard } from "./create.js";
 import { reduceArrayToString } from "./helpers.js";
 import { countryAlphaCodes } from "./data.js";
@@ -165,12 +165,14 @@ export const closeCountryModal = () => {
 
 /**
  * Display selection region option to select <p> tag
+ * Add data-region to {@link selectElement}
  * 
- * @param {MouseEvent} param0 
+ * @param {MouseEvent} target 
  */
 
 export const displaySelectedOption = ({ target }) => {
   selectElementText.innerText = target.innerText;
+  selectElement.dataset.region = target.dataset.region;
 };
 
 /**
