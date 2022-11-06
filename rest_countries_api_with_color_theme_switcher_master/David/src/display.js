@@ -9,21 +9,23 @@ const selectBg = document.querySelector(".select-bg");
 const countryModalContainer = document.querySelector(".country-modal__container");
 const countryModal = document.querySelector(".country-modal");
 const countriesCardsContainer = document.querySelector(".countries-cards");
+const loaderElement = document.querySelector(".loader");
 
 
 /**
  * - Toggle data-theme attribute set to body to light or dark
+ * - Set new theme to storage
  * - Toggle dark css class to {@link darkModeButton}
  */
 
 export const toggleDarkMode = () => {
   const theme = document.body.dataset.theme;
-  if (theme === "light") {
-    document.body.dataset.theme = "dark";
-  } else {
-    document.body.dataset.theme = "light";
-  }
+  let newTheme = theme === "light"
+    ? "dark"
+    : "light";
 
+  document.body.dataset.theme = newTheme;
+  localStorage.setItem("theme", newTheme);
   darkModeButton.classList.toggle("dark");
 };
 
@@ -120,6 +122,18 @@ const setCountryBorderCountries = (country) => {
 };
 
 /**
+ * Close modale with previous button click
+ * 
+ * @param {MouseEvent} button 
+ */
+
+const handlePreviousClickInModal = ({ button }) => {
+  if (button === 3) {
+    closeCountryModal();
+  }
+};
+
+/**
  * Display country card modal with advanced infos about the country
  * 
  * @param {MouseEvent} event 
@@ -128,6 +142,7 @@ const setCountryBorderCountries = (country) => {
 
 export const displayCountryModal = (event, country) => {
   event.preventDefault();
+  document.addEventListener("mousedown", handlePreviousClickInModal);
   countryModalContainer.classList.remove("hide");
   countriesCardsContainer.classList.add("hide");
   setCountryModalInfos(country);
@@ -140,6 +155,7 @@ export const displayCountryModal = (event, country) => {
  */
 
 export const closeCountryModal = () => {
+  document.removeEventListener("mousedown", handlePreviousClickInModal);
   countryModalContainer.classList.add("hide");
   countriesCardsContainer.classList.remove("hide");
 };
@@ -152,4 +168,12 @@ export const closeCountryModal = () => {
 
 export const displaySelectedOption = ({ target }) => {
   selectElementText.innerText = target.innerText;
+};
+
+/**
+ * Removes loader after data has been fetched
+ */
+
+export const removeLoader = () => {
+  loaderElement.classList.add("hide");
 };

@@ -20,6 +20,13 @@ header {
     transition: 300ms;
     font-weight: 600;
     z-index: 10;
+    padding: 5px 10px;
+    border-radius: 10px;
+
+    &:hover {
+      color: var(--white);
+      background-color: var(--dm-very-dark-blue);
+    }
 
     &::before {
       content: "\f186";
