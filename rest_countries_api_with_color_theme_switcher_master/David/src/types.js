@@ -11,6 +11,7 @@
  *  currencies : {name: string}[],
  *  languages: {name: string}[],
  *  topLevelDomain: [string]
+ *  borders: string[]
  * }}
  */
 

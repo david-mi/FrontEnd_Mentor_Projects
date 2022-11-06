@@ -2,6 +2,7 @@ import "./types.js";
 import { darkModeButton } from "./constants.js";
 import { createCountryCard } from "./create.js";
 import { reduceArrayToString } from "./helpers.js";
+import { countryAlphaCodes } from "./data.js";
 
 const optionsContainer = document.querySelector(".options");
 const selectBg = document.querySelector(".select-bg");
@@ -99,12 +100,21 @@ const setCountryAdditionalInfos = (country) => {
 
 /**
  * Add all required border countries values to display on country modal
+ * if borders property does not exist, reset {@link borderCountriesElement} innerHtml and return
  * 
  * @param {Country} country
  */
 
 const setCountryBorderCountries = (country) => {
   const borderCountriesElement = document.querySelector(".modal__border-countries ul");
+  borderCountriesElement.innerHTML = "";
+
+  if ("borders" in country === false) return;
+
+  country.borders.forEach(border => {
+    const liBorderHtml = `<li>${countryAlphaCodes[border]}</li>`;
+    borderCountriesElement.insertAdjacentHTML("beforeend", liBorderHtml);
+  });
 };
 
 /**
@@ -118,8 +128,10 @@ export const displayCountryModal = (event, country) => {
   event.preventDefault();
   countryModalContainer.classList.remove("hide");
   countriesCardsContainer.classList.add("hide");
+  console.log({ country });
   setCountryModalInfos(country);
   setCountryAdditionalInfos(country);
+  setCountryBorderCountries(country);
 };
 
 /**
