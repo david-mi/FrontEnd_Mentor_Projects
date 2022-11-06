@@ -12,3 +12,13 @@ export const reduceArrayToString = (objArray, property) => {
       : str += `${obj[property]}, `;
   }, "");
 };
+
+/**
+ * Check if a theme is saved on storage and setting it as body data-theme,
+ * if no theme is found, sets light by default
+ */
+
+export const handleThemeOnLoad = () => {
+  const theme = localStorage.getItem("theme") || "light";
+  document.body.dataset.theme = theme;
+};

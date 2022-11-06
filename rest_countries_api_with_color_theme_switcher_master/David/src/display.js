@@ -14,17 +14,18 @@ const loaderElement = document.querySelector(".loader");
 
 /**
  * - Toggle data-theme attribute set to body to light or dark
+ * - Set new theme to storage
  * - Toggle dark css class to {@link darkModeButton}
  */
 
 export const toggleDarkMode = () => {
   const theme = document.body.dataset.theme;
-  if (theme === "light") {
-    document.body.dataset.theme = "dark";
-  } else {
-    document.body.dataset.theme = "light";
-  }
+  let newTheme = theme === "light"
+    ? "dark"
+    : "light";
 
+  document.body.dataset.theme = newTheme;
+  localStorage.setItem("theme", newTheme);
   darkModeButton.classList.toggle("dark");
 };
 
