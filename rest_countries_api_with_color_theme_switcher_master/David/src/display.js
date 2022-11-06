@@ -120,6 +120,18 @@ const setCountryBorderCountries = (country) => {
 };
 
 /**
+ * Close modale with previous button click
+ * 
+ * @param {MouseEvent} event 
+ */
+
+const handlePreviousClickInModal = (event) => {
+  if (button === 3) {
+    closeCountryModal();
+  }
+};
+
+/**
  * Display country card modal with advanced infos about the country
  * 
  * @param {MouseEvent} event 
@@ -128,6 +140,7 @@ const setCountryBorderCountries = (country) => {
 
 export const displayCountryModal = (event, country) => {
   event.preventDefault();
+  document.addEventListener("mousedown", handlePreviousClickInModal);
   countryModalContainer.classList.remove("hide");
   countriesCardsContainer.classList.add("hide");
   setCountryModalInfos(country);
@@ -140,6 +153,7 @@ export const displayCountryModal = (event, country) => {
  */
 
 export const closeCountryModal = () => {
+  document.removeEventListener("mousedown", handlePreviousClickInModal);
   countryModalContainer.classList.add("hide");
   countriesCardsContainer.classList.remove("hide");
 };
