@@ -1,3 +1,5 @@
+import { handleThemeButtonIcon } from "./display.js";
+
 /**
  * Reduce an array of objects to a string, based on the given property
  * 
@@ -22,4 +24,5 @@ export const reduceArrayToString = (objArray, property) => {
 export const handleThemeOnLoad = () => {
   const theme = localStorage.getItem("theme") || "light";
   document.body.dataset.theme = theme;
+  handleThemeButtonIcon(theme);
 };

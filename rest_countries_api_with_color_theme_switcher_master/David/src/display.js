@@ -3,6 +3,7 @@ import { darkModeButton, selectElementText, selectElement } from "./constants.js
 import { createCountryCard } from "./create.js";
 import { reduceArrayToString } from "./helpers.js";
 import { countryAlphaCodes } from "./data.js";
+import { iconEnum } from "./enum.js";
 
 const optionsContainer = document.querySelector(".options");
 const selectBg = document.querySelector(".select-bg");
@@ -10,7 +11,17 @@ const countryModalContainer = document.querySelector(".country-modal__container"
 const countryModal = document.querySelector(".country-modal");
 const countriesCardsContainer = document.querySelector(".countries-cards");
 const loaderElement = document.querySelector(".loader");
+const themeButtonIcon = darkModeButton.querySelector("i");
 
+/**
+ * handle wich moon icon to display on themeButton
+ * @param {*} themeValue 
+ */
+
+export const handleThemeButtonIcon = (themeValue) => {
+  themeButtonIcon.classList.remove("far", "fas");
+  themeButtonIcon.classList.add(iconEnum[themeValue]);
+};
 
 /**
  * - Toggle data-theme attribute set to body to light or dark
@@ -18,7 +29,7 @@ const loaderElement = document.querySelector(".loader");
  * - Toggle dark css class to {@link darkModeButton}
  */
 
-export const toggleDarkMode = () => {
+export const toggleTheme = () => {
   const theme = document.body.dataset.theme;
   let newTheme = theme === "light"
     ? "dark"
@@ -26,7 +37,8 @@ export const toggleDarkMode = () => {
 
   document.body.dataset.theme = newTheme;
   localStorage.setItem("theme", newTheme);
-  darkModeButton.classList.toggle("dark");
+  handleThemeButtonIcon(newTheme);
+  // darkModeButton.classList.toggle("dark");
 };
 
 /**

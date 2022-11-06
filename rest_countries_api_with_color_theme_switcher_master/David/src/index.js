@@ -1,7 +1,7 @@
 import "./types.js";
 import { getCountriesFromApi } from "./api.js";
 import { darkModeButton, input, selectElement } from "./constants.js";
-import { displayCountries, toggleDarkMode, toggleSelectMenu, closeCountryModal, displaySelectedOption, removeLoader } from "./display.js";
+import { displayCountries, toggleTheme, toggleSelectMenu, closeCountryModal, displaySelectedOption, removeLoader } from "./display.js";
 import { countryAlphaCodes, countries } from "./data.js";
 import { filterCountries } from "./filter.js";
 import { handleThemeOnLoad } from "./helpers.js";
@@ -18,7 +18,7 @@ optionsElements.forEach(optionElement => {
   });
 });
 input.addEventListener("input", filterCountries);
-darkModeButton.addEventListener("click", toggleDarkMode);
+darkModeButton.addEventListener("click", toggleTheme);
 countryModalCloseButton.addEventListener("click", closeCountryModal);
 
 (async () => {

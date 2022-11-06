@@ -3,6 +3,10 @@
   display: none !important;
 }
 
+body[data-theme=dark] .dark-mode-btn:hover i {
+  color: var(--dm-very-dark-blue);
+}
+
 header {
   transition: 500ms;
   display: flex;
@@ -31,15 +35,13 @@ header .dark-mode-btn:hover {
   color: var(--white);
   background-color: var(--dm-very-dark-blue);
 }
-header .dark-mode-btn::before {
-  content: "\f186";
-  font-family: "FontAwesome";
-  font-size: 1rem;
-  font-weight: 400;
-  rotate: -20deg;
+header .dark-mode-btn:hover i {
+  color: var(--white);
 }
-header .dark-mode-btn.dark::before {
-  font-weight: 900;
+header .dark-mode-btn i {
+  font-size: 1rem;
+  rotate: -20deg;
+  transition: 400ms;
 }
 
 :root {

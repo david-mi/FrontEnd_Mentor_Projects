@@ -1,3 +1,9 @@
+body[data-theme="dark"] {
+  .dark-mode-btn:hover i {
+    color: var(--dm-very-dark-blue);
+  }
+}
+
 header {
   transition: 500ms;
   display: flex;
@@ -26,18 +32,16 @@ header {
     &:hover {
       color: var(--white);
       background-color: var(--dm-very-dark-blue);
+
+      i {
+        color: var(--white);
+      }
     }
 
-    &::before {
-      content: "\f186";
-      font-family: "FontAwesome";
+    i {
       font-size: 1rem;
-      font-weight: 400;
       rotate: -20deg;
-    }
-
-    &.dark::before {
-      font-weight: 900;
+      transition: 400ms;
     }
   }
 }
