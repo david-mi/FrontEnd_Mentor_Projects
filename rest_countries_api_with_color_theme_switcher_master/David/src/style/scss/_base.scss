@@ -46,7 +46,6 @@ body {
   gap: 50px;
   margin: auto;
   max-width: var(--media-desktop);
-  min-width: var(--media-mobile);
   background-color: var(--clr-background);
   color: var(--clr-text);
   font-size: var(--font-homepage);
@@ -70,7 +69,7 @@ a {
 }
 
 button {
-  background-color: transparent;
+  background-color: var(--clr-element);
   border: none;
   cursor: pointer;
   color: var(--clr-text);

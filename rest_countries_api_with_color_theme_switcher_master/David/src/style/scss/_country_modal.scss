@@ -1,5 +1,15 @@
 @use "./mixins" as *;
 
+body[data-theme="dark"] {
+  .close-modal {
+    box-shadow: 0 0 4px var(--dm-very-dark-blue);
+  }
+
+  .modal__border-countries ul li {
+    box-shadow: 0 0 4px var(--dm-very-dark-blue);
+  }
+}
+
 .country-modal__container {
   position: fixed;
   inset: 0;
@@ -132,6 +142,7 @@
         box-shadow: 0 0 4px var(--dark-grey);
         font-weight: 600;
         padding: 5px 20px;
+        background-color: var(--clr-element);
       }
     }
   }

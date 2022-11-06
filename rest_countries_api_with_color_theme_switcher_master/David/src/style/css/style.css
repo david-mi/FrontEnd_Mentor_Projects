@@ -75,7 +75,6 @@ body {
   gap: 50px;
   margin: auto;
   max-width: var(--media-desktop);
-  min-width: var(--media-mobile);
   background-color: var(--clr-background);
   color: var(--clr-text);
   font-size: var(--font-homepage);
@@ -99,7 +98,7 @@ a {
 }
 
 button {
-  background-color: transparent;
+  background-color: var(--clr-element);
   border: none;
   cursor: pointer;
   color: var(--clr-text);
@@ -272,6 +271,13 @@ body[data-theme=dark] a:hover .infos h2::before {
   font-weight: 300;
 }
 
+body[data-theme=dark] .close-modal {
+  box-shadow: 0 0 4px var(--dm-very-dark-blue);
+}
+body[data-theme=dark] .modal__border-countries ul li {
+  box-shadow: 0 0 4px var(--dm-very-dark-blue);
+}
+
 .country-modal__container {
   position: fixed;
   inset: 0;
@@ -390,6 +396,7 @@ body[data-theme=dark] a:hover .infos h2::before {
   box-shadow: 0 0 4px var(--dark-grey);
   font-weight: 600;
   padding: 5px 20px;
+  background-color: var(--clr-element);
 }
 
 /*# sourceMappingURL=style.css.map */
