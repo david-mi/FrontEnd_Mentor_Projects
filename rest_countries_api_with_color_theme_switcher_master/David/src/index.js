@@ -1,7 +1,8 @@
 import "./types.js";
 import { getCountriesFromApi } from "./api.js";
 import { darkModeButton, input, selectElement } from "./constants.js";
-import { displayCountries, toggleTheme, toggleSelectMenu, closeCountryModal, displaySelectedOption, removeLoader } from "./display.js";
+import { displayCountries, toggleTheme, toggleSelectMenu, displaySelectedOption, removeLoader } from "./display.js";
+import { closeCountryModal } from "./countryModal/display.js";
 import { countryAlphaCodes, countries } from "./data.js";
 import { filterCountries } from "./filter.js";
 import { handleThemeOnLoad } from "./helpers.js";

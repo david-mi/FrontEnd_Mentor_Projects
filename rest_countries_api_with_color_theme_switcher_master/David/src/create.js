@@ -1,4 +1,4 @@
-import { displayCountryModal } from "./display.js";
+import { displayCountryModal } from "./countryModal/display.js";
 
 /**
  * Creates card link for a country
