@@ -123,10 +123,10 @@ const setCountryBorderCountries = (country) => {
 /**
  * Close modale with previous button click
  * 
- * @param {MouseEvent} event 
+ * @param {MouseEvent} button 
  */
 
-const handlePreviousClickInModal = (event) => {
+const handlePreviousClickInModal = ({ button }) => {
   if (button === 3) {
     closeCountryModal();
   }
