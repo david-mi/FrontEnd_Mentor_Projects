@@ -5,8 +5,9 @@ import { reduceArrayToString } from "./helpers.js";
 
 const optionsContainer = document.querySelector(".options");
 const selectBg = document.querySelector(".select-bg");
-const mainElement = document.querySelector("main");
+const countryModalContainer = document.querySelector(".country-modal__container");
 const countryModal = document.querySelector(".country-modal");
+const countriesCardsContainer = document.querySelector(".countries-cards");
 
 /**
  * - Toggle data-theme attribute set to body to light or dark
@@ -37,14 +38,14 @@ export const toggleSelectMenu = (event) => {
 };
 
 /**
- * Append countries Elements to {@link mainElement}
+ * Append countries Elements to {@link countriesCardsContainer}
  * 
  * @param {Countries} countries 
  */
 
 export const displayCountries = (countries) => {
   countries.forEach(country => {
-    mainElement.append(createCountryCard(country));
+    countriesCardsContainer.append(createCountryCard(country));
   });
 };
 
@@ -61,19 +62,19 @@ const setCountryModalInfos = (country) => {
   const countryModalNameElement = countryModal.querySelector(".modal__infos h2");
   countryModalNameElement.innerText = country.name;
 
-  const nativeNameModalElement = document.querySelector(".modal__infos p:nth-child(2) span");
+  const nativeNameModalElement = document.querySelector(".modal__infos h3:nth-child(2) span");
   nativeNameModalElement.innerText = country.nativeName;
 
-  const populationModalElement = document.querySelector(".modal__infos p:nth-child(3) span");
+  const populationModalElement = document.querySelector(".modal__infos h3:nth-child(3) span");
   populationModalElement.innerText = country.population;
 
-  const regionModalElement = document.querySelector(".modal__infos p:nth-child(4) span");
+  const regionModalElement = document.querySelector(".modal__infos h3:nth-child(4) span");
   regionModalElement.innerText = country.region;
 
-  const subRegionModalElement = document.querySelector(".modal__infos p:nth-child(5) span");
+  const subRegionModalElement = document.querySelector(".modal__infos h3:nth-child(5) span");
   subRegionModalElement.innerText = country.subregion;
 
-  const capitalModalElement = document.querySelector(".modal__infos p:nth-child(6) span");
+  const capitalModalElement = document.querySelector(".modal__infos h3:nth-child(6) span");
   capitalModalElement.innerText = country.capital;
 };
 
@@ -84,14 +85,14 @@ const setCountryModalInfos = (country) => {
  */
 
 const setCountryAdditionalInfos = (country) => {
-  const topLevelModalElement = document.querySelector(".modal__additional-infos p:nth-child(1) span");
+  const topLevelModalElement = document.querySelector(".modal__additional-infos h3:nth-child(1) span");
   topLevelModalElement.innerText = country.topLevelDomain[0];
 
-  const currenciesModalElement = document.querySelector(".modal__additional-infos p:nth-child(2) span");
+  const currenciesModalElement = document.querySelector(".modal__additional-infos h3:nth-child(2) span");
   const currenciesStr = reduceArrayToString(country.currencies, "name");
   currenciesModalElement.innerText = currenciesStr;
 
-  const languagesModalElement = document.querySelector(".modal__additional-infos p:nth-child(3) span");
+  const languagesModalElement = document.querySelector(".modal__additional-infos h3:nth-child(3) span");
   const languagesStr = reduceArrayToString(country.languages, "name");
   languagesModalElement.innerText = languagesStr;
 };
@@ -115,8 +116,8 @@ const setCountryBorderCountries = (country) => {
 
 export const displayCountryModal = (event, country) => {
   event.preventDefault();
-  countryModal.classList.remove("hide");
-  document.body.classList.add("overflow");
+  countryModalContainer.classList.remove("hide");
+  countriesCardsContainer.classList.add("hide");
   setCountryModalInfos(country);
   setCountryAdditionalInfos(country);
 };
@@ -126,6 +127,6 @@ export const displayCountryModal = (event, country) => {
  */
 
 export const closeCountryModal = () => {
-  countryModal.classList.add("hide");
-  document.body.classList.remove("overflow");
+  countryModalContainer.classList.add("hide");
+  countriesCardsContainer.classList.remove("hide");
 };

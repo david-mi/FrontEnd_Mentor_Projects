@@ -38,31 +38,34 @@
   </div>
 
   <main class="countries">
-    <article class="country-modal hide" role="dialog">
-      <button class="close-modal">Back</button>
-      <img src="" alt="">
-      <div class="modal__infos">
-        <h2></h2>
-        <p>Native Name: <span></span></p>
-        <p>Population: <span></span></p>
-        <p>Region: <span></span></p>
-        <p>Sub Region: <span></span></p>
-        <p>Capital: <span></span></p>
-      </div>
-      <div class="modal__additional-infos">
-        <p>Top Level Domain: <span></span></p>
-        <p>Currencies: <span></span></p>
-        <p>Languages: <span></span></p>
-      </div>
-      <div class="modal__border-countries">
-        <h3>Border Countries</h3>
-        <ul>
-          <li>Pays1</li>
-          <li>Pays2</li>
-          <li>Pays3</li>
-        </ul>
-      </div>
-    </article>
+    <div class="country-modal__container hide" role="dialog">
+      <article class="country-modal">
+        <button class="close-modal">Back</button>
+        <img src="" alt="">
+        <div class="modal__infos">
+          <h2></h2>
+          <h3>Native Name: <span></span></h3>
+          <h3>Population: <span></span></h3>
+          <h3>Region: <span></span></h3>
+          <h3>Sub Region: <span></span></h3>
+          <h3>Capital: <span></span></h3>
+        </div>
+        <div class="modal__additional-infos">
+          <h3>Top Level Domain: <span></span></h3>
+          <h3>Currencies: <span></span></h3>
+          <h3>Languages: <span></span></h3>
+        </div>
+        <div class="modal__border-countries">
+          <h3>Border Countries:</h3>
+          <ul>
+            <li>Pays1</li>
+            <li>Pays2</li>
+            <li>Pays3</li>
+          </ul>
+        </div>
+      </article>
+    </div>
+    <div class="countries-cards"></div>
   </main>
 </body>
 
