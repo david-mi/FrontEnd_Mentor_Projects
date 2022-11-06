@@ -1,0 +1,76 @@
+@import url("https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@300;600;800&display=swap");
+
+:root {
+  --clr-text: hsl(200, 15%, 8%);
+  --clr-element: hsl(0, 0%, 100%);
+  --clr-background: hsl(0, 0%, 98%);
+
+  --lm-very-light-gray: hsl(0, 0%, 98%);
+  --lm-very-dark-blue: hsl(200, 15%, 8%);
+  --dm-very-dark-blue: hsl(207, 26%, 17%);
+  --dark-grey: hsl(0, 0%, 52%);
+  --white: hsl(0, 0%, 100%);
+
+  --font-homepage: 14px;
+  --font-details: 16px;
+
+  --media-mobile: 375px;
+  --media-tablet: 600px;
+  --media-desktop: 1440px;
+
+  --global-inline-padding: clamp(0px, 5vw, 70px);
+
+  [data-theme="dark"] {
+    --clr-text: hsl(0, 0%, 100%);
+    --clr-background: hsl(207, 26%, 17%);
+    --clr-element: hsl(209, 23%, 22%);
+  }
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Nunito Sans", sans-serif;
+  color: var(--clr-text);
+
+  &::before,
+  &::after {
+    box-sizing: border-box;
+  }
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  gap: 50px;
+  margin: auto;
+  max-width: var(--media-desktop);
+  background-color: var(--clr-background);
+  color: var(--clr-text);
+  font-size: var(--font-homepage);
+  transition: 200ms ease-in-out;
+  min-height: 100vh;
+}
+
+header,
+main,
+.search-filter,
+.country-modal {
+  padding-inline: clamp(0px, 5vw, 70px);
+}
+
+li {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+button {
+  background-color: var(--clr-element);
+  border: none;
+  cursor: pointer;
+  color: var(--clr-text);
+}

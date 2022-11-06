@@ -1,0 +1,111 @@
+@use "./mixins" as *;
+
+body[data-theme="dark"] .search-filter {
+  input:focus {
+    outline: solid 2px var(--dark-grey);
+  }
+
+  .options li:hover {
+    background-color: var(--lm-very-light-gray);
+    color: var(--dm-very-dark-blue);
+  }
+}
+
+.search-filter {
+  display: flex;
+  justify-content: space-between;
+  gap: var(--global-inline-padding);
+
+  @include small {
+    flex-direction: column;
+    gap: 60px;
+  }
+
+  input,
+  .select {
+    background-color: var(--clr-element);
+    font-weight: 600;
+    height: 50px;
+    border-radius: 5px;
+  }
+
+  form {
+    display: flex;
+    align-items: center;
+    max-width: 430px;
+    width: 100%;
+
+    @include small {
+      max-width: 100%;
+    }
+
+    &::before {
+      position: absolute;
+      content: "\f002";
+      font-family: "FontAwesome";
+      font-size: 1rem;
+      font-weight: 400;
+      padding-left: 30px;
+    }
+
+    input {
+      padding-inline: 65px 30px;
+      width: 100%;
+      border: none;
+
+      &:focus {
+        outline: solid 2px var(--dm-very-dark-blue);
+      }
+
+      &::placeholder {
+        color: var(--clr-text);
+      }
+    }
+  }
+
+  .select {
+    display: flex;
+    align-items: center;
+    position: relative;
+    max-width: 200px;
+    width: 100%;
+    padding-inline: 20px;
+    user-select: none;
+    cursor: pointer;
+    z-index: 50;
+
+    .select-bg {
+      position: fixed;
+      inset: 0;
+    }
+
+    &::before {
+      content: "\f078";
+      font-family: "FontAwesome";
+      position: absolute;
+      right: 25px;
+      font-size: 0.8rem;
+    }
+
+    .options {
+      position: absolute;
+      top: 60px;
+      left: 0;
+      background-color: var(--clr-element);
+      width: 100%;
+      border-radius: 5px;
+
+      li {
+        height: 30px;
+        padding: 20px;
+        display: flex;
+        align-items: center;
+
+        &:hover {
+          background-color: var(--dm-very-dark-blue);
+          color: var(--white);
+        }
+      }
+    }
+  }
+}
