@@ -62,25 +62,25 @@ export const displayCountries = (countries) => {
 
 const setCountryModalInfos = (country) => {
   const countryModalImageElement = countryModal.querySelector(".country-modal img");
-  countryModalImageElement.src = country.flag;
+  countryModalImageElement.src = country?.flag || null;
 
   const countryModalNameElement = countryModal.querySelector(".modal__infos h2");
-  countryModalNameElement.innerText = country.name;
+  countryModalNameElement.innerText = country?.name || "none";
 
   const nativeNameModalElement = document.querySelector(".modal__infos h3:nth-child(2) span");
-  nativeNameModalElement.innerText = country.nativeName;
+  nativeNameModalElement.innerText = country?.nativeName || "none";
 
   const populationModalElement = document.querySelector(".modal__infos h3:nth-child(3) span");
-  populationModalElement.innerText = country.population;
+  populationModalElement.innerText = country?.population || "none";
 
   const regionModalElement = document.querySelector(".modal__infos h3:nth-child(4) span");
-  regionModalElement.innerText = country.region;
+  regionModalElement.innerText = country?.region || "none";
 
   const subRegionModalElement = document.querySelector(".modal__infos h3:nth-child(5) span");
-  subRegionModalElement.innerText = country.subregion;
+  subRegionModalElement.innerText = country?.subregion || "none";
 
   const capitalModalElement = document.querySelector(".modal__infos h3:nth-child(6) span");
-  capitalModalElement.innerText = country.capital;
+  capitalModalElement.innerText = country?.capital || "none";
 };
 
 /**
@@ -91,7 +91,7 @@ const setCountryModalInfos = (country) => {
 
 const setCountryAdditionalInfos = (country) => {
   const topLevelModalElement = document.querySelector(".modal__additional-infos h3:nth-child(1) span");
-  topLevelModalElement.innerText = country.topLevelDomain[0];
+  topLevelModalElement.innerText = country.topLevelDomain?.[0] || "none";
 
   const currenciesModalElement = document.querySelector(".modal__additional-infos h3:nth-child(2) span");
   const currenciesStr = reduceArrayToString(country.currencies, "name");
@@ -113,7 +113,10 @@ const setCountryBorderCountries = (country) => {
   const borderCountriesElement = document.querySelector(".modal__border-countries ul");
   borderCountriesElement.innerHTML = "";
 
-  if ("borders" in country === false) return;
+  if ("borders" in country === false) {
+    borderCountriesElement.innerHTML = "none";
+    return;
+  };
 
   country.borders.forEach(border => {
     const liBorderHtml = `<li>${countryAlphaCodes[border]}</li>`;

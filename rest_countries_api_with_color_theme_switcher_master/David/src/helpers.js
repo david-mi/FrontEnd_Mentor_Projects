@@ -6,6 +6,7 @@
  */
 
 export const reduceArrayToString = (objArray, property) => {
+  if (!objArray) return "none";
   return objArray.reduce((str, obj, index, arr) => {
     return index === arr.length - 1
       ? str += obj[property]
