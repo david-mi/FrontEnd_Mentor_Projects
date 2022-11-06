@@ -1,5 +1,5 @@
 import "./types.js";
-import { darkModeButton } from "./constants.js";
+import { darkModeButton, selectElementText } from "./constants.js";
 import { createCountryCard } from "./create.js";
 import { reduceArrayToString } from "./helpers.js";
 import { countryAlphaCodes } from "./data.js";
@@ -9,6 +9,7 @@ const selectBg = document.querySelector(".select-bg");
 const countryModalContainer = document.querySelector(".country-modal__container");
 const countryModal = document.querySelector(".country-modal");
 const countriesCardsContainer = document.querySelector(".countries-cards");
+
 
 /**
  * - Toggle data-theme attribute set to body to light or dark
@@ -45,6 +46,7 @@ export const toggleSelectMenu = (event) => {
  */
 
 export const displayCountries = (countries) => {
+  countriesCardsContainer.innerHTML = "";
   countries.forEach(country => {
     countriesCardsContainer.append(createCountryCard(country));
   });
@@ -128,7 +130,6 @@ export const displayCountryModal = (event, country) => {
   event.preventDefault();
   countryModalContainer.classList.remove("hide");
   countriesCardsContainer.classList.add("hide");
-  console.log({ country });
   setCountryModalInfos(country);
   setCountryAdditionalInfos(country);
   setCountryBorderCountries(country);
@@ -141,4 +142,14 @@ export const displayCountryModal = (event, country) => {
 export const closeCountryModal = () => {
   countryModalContainer.classList.add("hide");
   countriesCardsContainer.classList.remove("hide");
+};
+
+/**
+ * Display selection region option to select <p> tag
+ * 
+ * @param {MouseEvent} param0 
+ */
+
+export const displaySelectedOption = ({ target }) => {
+  selectElementText.innerText = target.innerText;
 };

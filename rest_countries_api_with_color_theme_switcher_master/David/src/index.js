@@ -1,26 +1,32 @@
 import "./types.js";
 import { getCountriesFromApi } from "./api.js";
-import { darkModeButton } from "./constants.js";
-import { displayCountries, toggleDarkMode, toggleSelectMenu, closeCountryModal } from "./display.js";
-import { countryAlphaCodes } from "./data.js";
+import { darkModeButton, input } from "./constants.js";
+import { displayCountries, toggleDarkMode, toggleSelectMenu, closeCountryModal, displaySelectedOption } from "./display.js";
+import { countryAlphaCodes, countries } from "./data.js";
+import { filterCountries } from "./filter.js";
 
-const selectElement = document.querySelector(".select");
 const optionsElements = document.querySelectorAll(".options li");
 const countryModalCloseButton = document.querySelector(".close-modal");
+const selectElement = document.querySelector(".select");
 
 selectElement.addEventListener("click", toggleSelectMenu);
 optionsElements.forEach(optionElement => {
-  optionElement.addEventListener("click", toggleSelectMenu);
+  optionElement.addEventListener("click", (event) => {
+    displaySelectedOption(event);
+    toggleSelectMenu(event);
+    filterCountries();
+  });
 });
+input.addEventListener("input", filterCountries);
 darkModeButton.addEventListener("click", toggleDarkMode);
 countryModalCloseButton.addEventListener("click", closeCountryModal);
 
 (async () => {
-  const countries = await getCountriesFromApi();
-  countries.reduce((alphaCode, { alpha3Code, name }) => {
+  const countriesData = await getCountriesFromApi();
+  countries.push(...countriesData);
+  countriesData.reduce((alphaCode, { alpha3Code, name }) => {
     alphaCode[alpha3Code] = name;
     return alphaCode;
   }, countryAlphaCodes);
-  displayCountries(countries);
-  console.log(countries);
+  displayCountries(countriesData);
 })();
